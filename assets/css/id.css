@@ -1,0 +1,61 @@
+.idcontainer{
+	width: 270px;
+	height: 165px;
+	border: 1px solid #fff;
+	font-family: "calibri", "Arial", "sans-serif";
+	margin-left: 0px;
+	text-align: center;
+ 
+}
+
+.res{
+	width: 250px;
+	height: 65px;
+	margin-left: auto;
+	margin-right :auto;
+	margin-top: 5px;
+	border: 1px solid #fff;
+}
+
+.res1 {
+	width: 250px;
+	height: 80px;
+	margin-left: auto;
+	margin-right :auto;
+	margin-top: 5px;
+	border: 1px solid #fff;
+}
+
+.details{
+	margin-top: 20PX;
+	text-align: center;
+	font-size: 8px;
+	border: 1px solid #fff;
+	line-height: 35px;
+	overflow: hidden;
+	padding-bottom: 3px;
+}
+
+.details1{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 30px;
+	border: 1px solid #fff;
+	line-height: 20px;
+	overflow: hidden;
+	padding-bottom: 3px;
+}
+
+.barcode {
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.code {
+	font-size: 12px;
+	width: 240px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}

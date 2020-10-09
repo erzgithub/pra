@@ -1,0 +1,786 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 08, 2016 at 10:54 AM
+-- Server version: 5.7.9
+-- PHP Version: 5.6.16
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `dsds`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_attendance`
+--
+
+DROP TABLE IF EXISTS `tbl_attendance`;
+CREATE TABLE IF NOT EXISTS `tbl_attendance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first` varchar(255) DEFAULT NULL,
+  `last` varchar(255) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `barcode` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_attendance`
+--
+
+INSERT INTO `tbl_attendance` (`id`, `first`, `last`, `company`, `barcode`) VALUES
+(1, 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '6lt3y7o4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_foods`
+--
+
+DROP TABLE IF EXISTS `tbl_foods`;
+CREATE TABLE IF NOT EXISTS `tbl_foods` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BarcodeID` varchar(255) DEFAULT NULL,
+  `MealType` varchar(50) DEFAULT NULL,
+  `DateRecorded` datetime DEFAULT NULL,
+  `Remarks` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_foodstabs`
+--
+
+DROP TABLE IF EXISTS `tbl_foodstabs`;
+CREATE TABLE IF NOT EXISTS `tbl_foodstabs` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BarcodeID` varchar(255) DEFAULT NULL,
+  `MealType` varchar(50) DEFAULT NULL,
+  `DateRecorded` datetime DEFAULT NULL,
+  `Remarks` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_kits`
+--
+
+DROP TABLE IF EXISTS `tbl_kits`;
+CREATE TABLE IF NOT EXISTS `tbl_kits` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BarcodeID` varchar(255) DEFAULT NULL,
+  `DateRecorded` datetime DEFAULT NULL,
+  `Remarks` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_kits`
+--
+
+INSERT INTO `tbl_kits` (`ID`, `BarcodeID`, `DateRecorded`, `Remarks`) VALUES
+(1, '40a65qmx5', '2016-08-02 17:42:09', NULL),
+(2, '580tdsima1s', '2016-08-05 16:10:15', NULL),
+(3, '1kub6xr1ss', '2016-08-05 16:10:48', NULL),
+(4, '1e47ppiaxi', '2016-08-05 16:11:25', NULL),
+(6, 'asd', '2016-08-07 19:06:51', NULL),
+(7, '12', '2016-08-08 13:34:07', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mealtypes`
+--
+
+DROP TABLE IF EXISTS `tbl_mealtypes`;
+CREATE TABLE IF NOT EXISTS `tbl_mealtypes` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `MealType` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_persons`
+--
+
+DROP TABLE IF EXISTS `tbl_persons`;
+CREATE TABLE IF NOT EXISTS `tbl_persons` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Salutation` varchar(10) DEFAULT NULL,
+  `FirstName` varchar(255) DEFAULT NULL,
+  `LastName` varchar(255) DEFAULT NULL,
+  `CompanyName` varchar(255) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `Telephonefax` varchar(255) DEFAULT NULL,
+  `Mobile` varchar(255) DEFAULT NULL,
+  `MobileNo` varchar(255) DEFAULT NULL,
+  `BusinessPhone` varchar(255) DEFAULT NULL,
+  `Designation` varchar(255) DEFAULT NULL,
+  `Province` varchar(255) DEFAULT NULL,
+  `CityMunicipality` varchar(255) DEFAULT NULL,
+  `DateRegistered` datetime DEFAULT NULL,
+  `DateAttended` datetime DEFAULT NULL,
+  `isPicked` int(11) DEFAULT NULL,
+  `isAllowed` int(11) DEFAULT NULL,
+  `BarcodeID` varchar(255) DEFAULT NULL,
+  `Remarks` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=937 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_persons`
+--
+
+INSERT INTO `tbl_persons` (`ID`, `Salutation`, `FirstName`, `LastName`, `CompanyName`, `Address`, `Email`, `Telephonefax`, `Mobile`, `MobileNo`, `BusinessPhone`, `Designation`, `Province`, `CityMunicipality`, `DateRegistered`, `DateAttended`, `isPicked`, `isAllowed`, `BarcodeID`, `Remarks`) VALUES
+(373, NULL, 'NAME', 'LASTNAME', 'COMPANY/STORE', 'ADDRESS', 'EMAIL ADDRESS', 'TELEPHONE', 'CELLPHONE', NULL, NULL, 'DESIGNATION', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(374, NULL, 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '173F Alpha Street.Bangkulasi, Navotas City', '2358jm@gmail.com', '921-9459', '0917-896-6698', NULL, NULL, 'DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(375, NULL, 'RAFAEL FERNANDEZ', ' DE MESA', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'rafael.de.mesa@aboitiz.com', '032-411-1640', '', NULL, NULL, 'COMMERCIAL BUSINESS UNIT HEAD', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(376, NULL, 'ROSELLE ', 'BANTILAN', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'roselle.bantilan@aboitiz.com', '032-411-1640', '', NULL, NULL, 'AVP, COMMERCIAL BUS. DEVT.', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(377, NULL, 'GEMBELYNE', ' ICAMEN', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'gembelyne.icamen@aboitiz.com', '032-411-1640', '', NULL, NULL, 'CLMT MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(378, NULL, 'HANNALEE ', 'HERNANDO', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'hannalee.hernando@aboitiz.com', '032-411-1640', '', NULL, NULL, 'BUSINESS DEVT. OFFICER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(379, NULL, 'GEOFEL R.  ', 'LABENDIA', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'geofel.labendia@aboitiz.com', '032-411-1640', '0939-910-4471', NULL, NULL, 'ASST. MARKETING MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(380, NULL, 'MARY JEAN ', 'JACINTO', 'ACTIVE BUSINESS SOLUTIONS, INC.', '17/F Lepanto Building, 2747 Paseo de Roxas, Makati City', 'jeng.jacinto@activebusiness.com', '893-1111', '0917-865-5424', NULL, NULL, 'INDUSTRY MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(381, NULL, 'CHEENA ', 'TIRONA', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'chenna.tirona@actmediaphil.com', '636-1865', '0927-151-9290', NULL, NULL, 'SALES & MARKETING', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(382, NULL, 'MAY ', 'CONTI', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'may.conti@actmediaphil.com', '636-1865', '0917-794-0709', NULL, NULL, 'SALES HEAD', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(383, NULL, 'REENA ', 'DOMINGO', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'reena.domingo@redbasketinc.com', '636-1865', '0917-897-4848', NULL, NULL, 'GENERAL MANAGE', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(384, NULL, 'CJ ', 'LEDESMA', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'christine@redbasketinc.com', '636-1865', '0917-803-2682', NULL, NULL, 'ACCOUNT MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(385, NULL, 'RENE ', 'FERNANDEZ', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'rene.fernandez@actmediaphil.com', '636-1865', '', NULL, NULL, 'RETAIL /OPS DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(386, NULL, 'NIKKIE ', 'RYNNING', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'nikkie.rynning@actmediaphil.com', '636-1865', '', NULL, NULL, 'RETAIL MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(387, NULL, 'CARLO ', 'QUILANTONG', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'carlo.quilantong@actmediaphil.com', '636-1865', '', NULL, NULL, 'RETAIL MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(388, NULL, 'GENO', 'GREGORIO', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', '', '636-1865', '', NULL, NULL, 'RETAIL MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(389, NULL, 'PIKE ', 'TRINIDAD', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'pike.trinidad@actmediaphil.com', '636-1865', '0917-822-7453', NULL, NULL, 'ACCOUNT MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(390, NULL, 'RHOBI-ZEN ', 'IGNACIO', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', 'Emilia cor. Buendia Street, Makati City', 'cncexecutiveoffice@gmail.com', '856-5486-87', '0917-717-0804', NULL, NULL, 'HEAD - EXECUTIVE OFFICE', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(391, NULL, 'SHERMAINE ', 'MENDOZA', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', 'Emilia cor. Buendia Street, Makati City', 'cncexecutiveoffice@gmail.com', '856-5486-87', '', NULL, NULL, 'OPS/LEASING', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(392, NULL, 'JANNA MAY ', 'BACUIBAS', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', 'Emilia cor. Buendia Street, Makati City', 'cncexecutiveoffice@gmail.com', '856-5486-87', '', NULL, NULL, 'OPS/LEASING', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(393, NULL, 'ERWYN ', 'ALCOMENDRAS', 'ADTEL INC.', 'LBI Bldg., 57 Kalayaan Avenue, Quezon City', 'etalcomendras@adtelinc.com.ph', '435-1801', '0917-516-5590', NULL, NULL, 'MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(394, NULL, 'JOHN JUSTO U. ', 'VILLAMIEL', 'ARTWORK, INC.', '38 Apitong Street, Marikina Height, Marikina City', 'johnjusto@gmail.com', '942-6724', '0922-873-7711', NULL, NULL, 'VP OPERATIONS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(395, NULL, 'LEA CHARISSE U. VILLAMIEL', 'VILLAMIEL', 'ARTWORK, INC.', '38 Apitong Street, Marikina Height, Marikina City', '', '942-6724', '0922-873-7704', NULL, NULL, 'SENIOR FINANCE OFFICER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(396, NULL, 'TEO ANGELO ', 'ESGUERRA', 'ARTWORK, INC.', '38 Apitong Street, Marikina Height, Marikina City', '', '942-6724', '0922-873-7715', NULL, NULL, 'GRAPHIC ARTIST', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(397, NULL, 'JOHNNY M. ', 'KING, JR.', 'BIKE PLUS ', '720 Caromina Street, Quiapo, Manila', 'jooneking@yahoo.com', '733-9488', '0917-842-2976', NULL, NULL, 'PRESIDENT', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(398, NULL, 'ALVIN C. ', 'CHENG', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'acc.alvin@yahoo.com', '374-7888 (257)', '0917-514-0427', NULL, NULL, 'SENIOR MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(399, NULL, 'DANTE N. ', 'CASTILLO', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'dante.castillo@rrj.com.ph', '374-7888 (257)', '0917-899-0246', NULL, NULL, 'SALES MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(400, NULL, 'NECYPHORA M. ', 'RICACHO', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'necy.ricacho@rrj.com.ph', '374-7888 (257)', '0917-522-2034', NULL, NULL, 'OPERATIONS MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(401, NULL, 'RUEL ', 'TECSON', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'rueltecson_feuso@yahoo.com.ph', '374-7888 (257)', '0917-812-1885', NULL, NULL, 'SALES MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(402, NULL, 'FRANCIS REYNALD ', 'SANTIAGO', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'francis.santiago@rrj.com.ph', '374-7888 (257)', '0917-800-4926', NULL, NULL, 'SALES MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(403, NULL, 'J. RODION ', 'UY', 'BREAD BY PATTY CORP.', 'Sto. Nino St., Sitio Nonoc, Tabonok, Talisay City Cebu', 'jrodion@gmail.com', '', '0917-322-2219', NULL, NULL, 'PRESIDENT', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(404, NULL, 'LEO ', 'MARQUEZ', 'BREAD BY PATTY CORP.', '', 'leo@ixbase.net', '', '0917-555-8169', NULL, NULL, 'CIO', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(405, NULL, 'NICOLE STEFFANI P. ', 'KING', 'BUILT CYCLES', '720 Caromina Street, Quiapo, Manila', 'king_nicolestef@yahoo.com', '733-9488', '0917-850-0728', NULL, NULL, 'OWNER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(406, NULL, 'JOANNA JANE D. ', 'CHUNG', 'CASAMIA FURNITURE CENTER, INC. (OUR HOME)', 'SM Corporate Office, Bay 272 Bldg. B, J.W. Diokno Bouelvard, Mall of Asia Complex, Pasay City', 'Joanna.D.Chung@sm-shoemart.com', '831-8000 (82330)', '0917-809-0138', NULL, NULL, 'VICE PRESIDENT OPERATIONS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(407, NULL, 'MICHAEL ', 'CO', 'CEBU OVERSEA HARDWARE CO., INC.', '2246 Don Chino Roces Avenue, Makati City', 'michaelco.chbc@gmail.com', '800-6420', '', NULL, NULL, 'VP SALES & MARKETING', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(408, NULL, 'JAMES ', 'CO', 'CEBU OVERSEA HARDWARE CO., INC.', '2246 Don Chino Roces Avenue, Makati City', 'james.co@cebuoversea.com', '800-6420', '', NULL, NULL, 'GENERAL MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(409, NULL, 'MA. LOURDES C.', ' DE VENECIA', 'CINDERELLA MAKETING CORP.', 'Cinderella Building, 825 E. delos Santos, Quezon City', 'maloudevenecia@yahoo.com', '926-9091', '', NULL, NULL, 'MARKETING DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(410, NULL, 'AIMEE ', 'NOLASCO', 'CINDERELLA MAKETING CORP.', 'Cinderella Building, 825 E. delos Santos, Quezon City', 'aimeenolasco@cinderellaph.com', '926-9091', '0922-886-4297', NULL, NULL, 'MDSG. & PRICING COMPTROLLER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(411, NULL, 'PAUL Y. ', 'TAN', 'CITISTORES INC.', '1919-B, E, Amang Rodriguez Sr. Avenue,  Rosario, Pasig City', 'pyt@citistores.com', '642-7868', '', NULL, NULL, 'CEO', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(412, NULL, 'ANTONIO Y. ', 'TAN', 'CITISTORES INC.', '1919-B, E, Amang Rodriguez Sr. Avenue,  Rosario, Pasig City', 'ayt@citistores.com', '642-7868', '', NULL, NULL, 'SVP', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(413, NULL, 'MELCHOR ', 'GASPAR', 'CITISTORES INC.', '1919-B, E, Amang Rodriguez Sr. Avenue,  Rosario, Pasig City', 'mgg@citistores.com', '642-7868', '', NULL, NULL, 'COO', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(414, NULL, 'MA. LUISA I. ', 'PARAS', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'lparas@rustylopez.com', '941-2868', '0923-734-0845', NULL, NULL, 'HR MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(415, NULL, 'MARIA RACHEL NICOLETTE D. ', 'LOPEZ', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'niczlopez@yahoo.com', '941-2868', '', NULL, NULL, 'BRAND MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(416, NULL, 'BENEDICTO L. ', 'VILLAFUERTE', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'benedict@rustylopez.com', '941-2868', '', NULL, NULL, 'MIS MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(417, NULL, 'NANCY N. ', 'PARAJES', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'nancy.parajes@gmail.com', '941-2868', '', NULL, NULL, 'BD HEAD', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(418, NULL, 'JOSEPHINE R. ', 'TAN', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'jtan@rustylopez.com', '941-2868', '', NULL, NULL, 'CONCESSIONS MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(419, NULL, 'BARBARA O. ', 'VILLAS', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'bovillas@gmail.com', '941-2868', '', NULL, NULL, 'AVP - OPERATIONS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(420, NULL, 'STEPHEN ', 'SARMIENTO', 'CREATIVE LIGHTING ASIA PHLIPPINES, INC.', 'One Global Place, Level 10-a, 5th Avenue& 25th St., BOC, Taguig', 'stephen.ph@cla.asia', '917-0258', '', NULL, NULL, 'MANAGING DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(421, NULL, 'DELLA ', 'SARMIENTO', 'CREATIVE LIGHTING ASIA PHLIPPINES, INC.', 'One Global Place, Level 10-a, 5th Avenue& 25th St., BOC, Taguig', 'della.sarmiento@cla.asia', '917-0258', '', NULL, NULL, 'FINANCE DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(422, NULL, 'FIRST NAME', 'LAST NAME', 'COMPANY/STORE', 'ADDRESS', 'EMAIL ADDRESS', 'TELEPHONE', 'CELLPHONE', NULL, NULL, 'DESIGNATION', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(423, NULL, 'ROWENA', 'TOMELDAN', 'AYALA LAND INC.', '', '', '', '', NULL, NULL, 'VP & HEAD OF OPERATIONS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(424, NULL, 'ROSVI', 'GAETOS', 'CITEM', '', '', '', '', NULL, NULL, 'DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(425, NULL, 'ZENAIDA', 'MAGLAYA', 'DEPT. OF TRADE & INDUSTRY', '6th Floor, Tradean Industry Building, 361 Sen. Gil Puyat Avenue, Makati City', 'rog@dti.gov.ph', '751-0384', '', NULL, NULL, 'UNDERSECRETARY', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(426, NULL, 'REGINA', 'MABULAY', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'happy_lacson-mabulay@abs-cbn.com', '415-2272', '', NULL, NULL, 'HEAD, CONSUMER PRODUCTS GROUP', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(427, NULL, 'JAZMIN', 'COMIA', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'jazmin_comia@abs-cbn.com', '415-2272', '', NULL, NULL, 'HEAD, MERCHANDISE', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(428, NULL, 'PIA', 'DE LEON', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'pia_deleon@abs-cbn.com', '415-2272', '', NULL, NULL, 'MARKETING OFFICER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(429, NULL, 'SERVILIANO', 'SAYAJON', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'sdsayajon@abs-cbn.com', '415-2272', '', NULL, NULL, 'HEAD, PRODUCTS AND CREATIVES', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(430, NULL, 'KHRISTINE', 'ASERON', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'ksaseron@abs-cbn.com', '415-2272', '', NULL, NULL, 'PRODUCT DEVT. SPECIALIST', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(431, NULL, 'MELVIN', 'CASAJE', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'melvin_casaje@abs-cbn.com', '415-2272', '0937-373-2076', NULL, NULL, 'HEAD, TECHNICAL REQUIREMENTS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(432, NULL, 'JOSELITO', 'LONTOKI', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'joselio_lontok@abs-cbn.com', '415-2272', '0937-379-0811', NULL, NULL, 'HEAD, RETAIL LOGISTICS', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(433, NULL, 'ALVIN', 'LUMACANG', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'alvin_lumacang@abs-cbn.com', '415-2272', '0937-373-1575', NULL, NULL, 'HEAD, IMPORTATION & DISTRIBUTION', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(434, NULL, 'CELINE', 'MARCELO', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', '', '415-2272', '', NULL, NULL, 'POS MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(435, NULL, 'SONIA', 'ADRADA', 'AD-MAN RESOURCES INC.', 'Room 308 Narra Building, 2276 Pasong Tamo Extension, Makati City', 'sales@admanresources.com', '821-7825', '', NULL, NULL, 'MARKETING MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(436, NULL, 'MITZIE', ' BUNAG', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'LEASING MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(437, NULL, 'RUTH', 'MORALES', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'LEASING MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(438, NULL, 'ELLEN', 'RAMAS', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'VGLA LEASING MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(439, NULL, 'LALY', 'MORALES', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'LEASING MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(440, NULL, 'MARJORIE', ' GO', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'MARKETING SERVICES MANAGER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(441, NULL, 'CHEZKA', 'GUEVARRA', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'MARKETING OFFICER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(442, NULL, 'KATHY', ' DIONISIO', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'MARKETING OFFICER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(443, NULL, 'MADEL', 'PAROCHA', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, NULL, 'DIGITAL MAKETING OFFICER', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(444, NULL, 'BENNY', 'HINOLAN', 'AUDIOWAV MEDIA INC.', 'Unit 28 Admiin Building 1 Annex, North Main Ave., LTI Inc., Brgy. Binan, Laguna 4024', 'benny.hinolan@wav.global', '', '0917-843-3460', NULL, NULL, 'BUSINESS UNIT DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(445, NULL, 'JEFF', 'LOVERANES', 'AUDIOWAV MEDIA INC.', 'Unit 28 Admiin Building 1 Annex, North Main Ave., LTI Inc., Brgy. Binan, Laguna 4024', 'jeffrey.loveranes@wav.global', '', '0917-528-6522', NULL, NULL, 'BUSINESS UNIT DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(446, NULL, 'JOHN', 'SANTOS', 'AUDIOWAV MEDIA INC.', 'Unit 28 Admiin Building 1 Annex, North Main Ave., LTI Inc., Brgy. Binan, Laguna 4024', 'john.santos@wav.global', '', '0917-843-3215', NULL, NULL, 'BUSINESS UNIT DIRECTOR', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(447, '', 'ROWENA', 'TOMELDAN', 'AYALA LAND INC.', '', '', '', '', NULL, 'Delegate', 'VP & HEAD OF OPERATIONS', '', '', '2016-08-06 12:16:17', '2016-08-06 12:16:17', 0, 0, 'zdm4qi8gc', NULL),
+(449, '', 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '173F Alpha Street.Bangkulasi, Navotas City', '2358jm@gmail.com', '921-9459', '0917-896-6698', NULL, 'Delegate', 'DIRECTOR', '', '', '2016-08-06 12:30:05', '2016-08-06 12:30:05', 0, 0, '6lt3y7o4', NULL),
+(450, '', 'RAFAEL FERNANDEZ', ' DE MESA', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'rafael.de.mesa@aboitiz.com', '032-411-1640', '', NULL, 'Delegate', 'COMMERCIAL BUSINESS UNIT HEAD', '', '', '2016-08-06 12:32:30', '2016-08-06 12:32:30', 0, 0, 'ebqpbvv9', NULL),
+(451, '', 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '173F Alpha Street.Bangkulasi, Navotas City', '2358jm@gmail.com', '921-9459', '0917-896-6698', NULL, 'Delegate', 'DIRECTOR', '', '', '2016-08-06 12:35:08', '2016-08-06 12:35:08', 0, 0, '23kakm8b', NULL),
+(452, '', 'RAFAEL FERNANDEZ', ' DE MESA', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'rafael.de.mesa@aboitiz.com', '032-411-1640', '', NULL, 'Delegate', 'COMMERCIAL BUSINESS UNIT HEAD', '', '', '2016-08-06 12:35:35', '2016-08-06 12:35:35', 0, 0, '8crpotgpa', NULL),
+(453, '', 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '173F Alpha Street.Bangkulasi, Navotas City', '2358jm@gmail.com', '921-9459', '0917-896-6698', NULL, 'Delegate', 'DIRECTOR', '', '', '2016-08-06 12:36:41', '2016-08-06 12:36:41', 0, 0, '8qesrd4jcns', NULL),
+(454, '', 'RAFAEL FERNANDEZ', ' DE MESA', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'rafael.de.mesa@aboitiz.com', '032-411-1640', '', NULL, 'Delegate', 'COMMERCIAL BUSINESS UNIT HEAD', '', '', '2016-08-06 12:52:09', '2016-08-06 12:52:09', 0, 0, '3qy7o7ar', NULL),
+(455, '', 'ROSELLE ', 'BANTILAN', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'roselle.bantilan@aboitiz.com', '032-411-1640', '', NULL, 'Delegate', 'AVP, COMMERCIAL BUS. DEVT.', '', '', '2016-08-06 12:52:52', '2016-08-06 12:52:52', 0, 0, 'fuhjh02ip', NULL),
+(456, '', 'GEMBELYNE', ' ICAMEN', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'gembelyne.icamen@aboitiz.com', '032-411-1640', '', NULL, 'Delegate', 'CLMT MANAGER', '', '', '2016-08-06 12:54:44', '2016-08-06 12:54:44', 0, 0, 'mw6x85u', NULL),
+(457, '', 'HANNALEE ', 'HERNANDO', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'hannalee.hernando@aboitiz.com', '032-411-1640', '', NULL, 'Delegate', 'BUSINESS DEVT. OFFICER', '', '', '2016-08-06 12:55:02', '2016-08-06 12:55:02', 0, 0, '10txf8f9t', NULL),
+(458, '', 'GEOFEL R.  ', 'LABENDIA', 'ABOITIZ LAND INC.', 'Aboitiz Corporate Center, Gov. Manuel A. Cuenco Avenue, Banilad Cebu City', 'geofel.labendia@aboitiz.com', '032-411-1640', '0939-910-4471', NULL, 'Delegate', 'ASST. MARKETING MANAGER', '', '', '2016-08-06 12:55:48', '2016-08-06 12:55:48', 0, 0, '8i0zeydce', NULL),
+(459, '', 'MARY JEAN ', 'JACINTO', 'ACTIVE BUSINESS SOLUTIONS, INC.', '17/F Lepanto Building, 2747 Paseo de Roxas, Makati City', 'jeng.jacinto@activebusiness.com', '893-1111', '0917-865-5424', NULL, 'Delegate', 'INDUSTRY MANAGER', '', '', '2016-08-06 12:57:06', '2016-08-06 12:57:06', 0, 0, 'i5rq60ndhk', NULL),
+(460, '', 'CHEENA ', 'TIRONA', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'chenna.tirona@actmediaphil.com', '636-1865', '0927-151-9290', NULL, 'Delegate', 'SALES & MARKETING', '', '', '2016-08-06 12:57:22', '2016-08-06 12:57:22', 0, 0, 'j62254goc', NULL),
+(461, '', 'MAY ', 'CONTI', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'may.conti@actmediaphil.com', '636-1865', '0917-794-0709', NULL, 'Delegate', 'SALES HEAD', '', '', '2016-08-06 12:57:34', '2016-08-06 12:57:34', 0, 0, 'hxr07xr1', NULL),
+(462, '', 'REENA ', 'DOMINGO', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'reena.domingo@redbasketinc.com', '636-1865', '0917-897-4848', NULL, 'Delegate', 'GENERAL MANAGE', '', '', '2016-08-06 12:58:00', '2016-08-06 12:58:00', 0, 0, '24g7n7l3', NULL),
+(463, '', 'CJ', '', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 12:58:14', '2016-08-06 12:58:14', 0, 0, '3ylj1tzht', NULL),
+(464, '', 'CJ ', 'LEDESMA', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'christine@redbasketinc.com', '636-1865', '0917-803-2682', NULL, 'Delegate', 'ACCOUNT MANAGER', '', '', '2016-08-06 12:58:37', '2016-08-06 12:58:37', 0, 0, '85p7jij1u', NULL),
+(465, '', 'Rene', '', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 12:58:48', '2016-08-06 12:58:48', 0, 0, 'tf8bgi5g5', NULL),
+(466, '', 'RENE ', 'FERNANDEZ', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'rene.fernandez@actmediaphil.com', '636-1865', '', NULL, 'Delegate', 'RETAIL /OPS DIRECTOR', '', '', '2016-08-06 12:58:57', '2016-08-06 12:58:57', 0, 0, '84n2vgqwz', NULL),
+(467, '', 'NIKKIE ', 'RYNNING', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'nikkie.rynning@actmediaphil.com', '636-1865', '', NULL, 'Delegate', 'RETAIL MANAGER', '', '', '2016-08-06 12:59:24', '2016-08-06 12:59:24', 0, 0, 'c0qb3cu', NULL),
+(468, '', 'CARLO ', 'QUILANTONG', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'carlo.quilantong@actmediaphil.com', '636-1865', '', NULL, 'Delegate', 'RETAIL MANAGER', '', '', '2016-08-06 12:59:41', '2016-08-06 12:59:41', 0, 0, 'cq9kddg', NULL),
+(469, '', 'GENO', 'GREGORIO', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', '', '636-1865', '', NULL, 'Delegate', 'RETAIL MANAGER', '', '', '2016-08-06 13:00:02', '2016-08-06 13:00:02', 0, 0, '2yrwal9o', NULL),
+(470, '', 'PIKE ', 'TRINIDAD', 'ACTMEDIA PHILIPPINES, INC.', 'Magnitude Place Compound 186', 'pike.trinidad@actmediaphil.com', '636-1865', '0917-822-7453', NULL, 'Delegate', 'ACCOUNT MANAGER', '', '', '2016-08-06 13:00:54', '2016-08-06 13:00:54', 0, 0, '1zwy47kar', NULL),
+(471, '', 'RHOBI-ZEN ', 'IGNACIO', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', 'Emilia cor. Buendia Street, Makati City', 'cncexecutiveoffice@gmail.com', '856-5486-87', '0917-717-0804', NULL, 'Delegate', 'HEAD - EXECUTIVE OFFICE', '', '', '2016-08-06 13:01:15', '2016-08-06 13:01:15', 0, 0, '6c681230l', NULL),
+(472, '', 'SHERMAINE ', 'MENDOZA', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', 'Emilia cor. Buendia Street, Makati City', 'cncexecutiveoffice@gmail.com', '856-5486-87', '', NULL, 'Delegate', 'OPS/LEASING', '', '', '2016-08-06 13:01:34', '2016-08-06 13:01:34', 0, 0, '5jwnz94u0', NULL),
+(473, '', 'JANNA MAY ', 'BACUIBAS', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', 'Emilia cor. Buendia Street, Makati City', 'cncexecutiveoffice@gmail.com', '856-5486-87', '', NULL, 'Delegate', 'OPS/LEASING', '', '', '2016-08-06 13:01:57', '2016-08-06 13:01:57', 0, 0, '400zbq8g1', NULL),
+(474, '', 'ERWYN ', 'ALCOMENDRAS', 'ADTEL INC.', 'LBI Bldg., 57 Kalayaan Avenue, Quezon City', 'etalcomendras@adtelinc.com.ph', '435-1801', '0917-516-5590', NULL, 'Delegate', 'MANAGER', '', '', '2016-08-06 13:02:14', '2016-08-06 13:02:14', 0, 0, 'umkch8xbuc', NULL),
+(475, '', 'JOHN', 'SANTOS', 'AUDIOWAV MEDIA INC.', 'Unit 28 Admiin Building 1 Annex, North Main Ave., LTI Inc., Brgy. Binan, Laguna 4024', 'john.santos@wav.global', '', '0917-843-3215', NULL, 'Delegate', 'BUSINESS UNIT DIRECTOR', '', '', '2016-08-06 13:02:26', '2016-08-06 13:02:26', 0, 0, 'r5jkc3qr2w', NULL),
+(476, '', 'LEA CHARISSE U. VILLAMIEL', 'VILLAMIEL', 'ARTWORK, INC.', '38 Apitong Street, Marikina Height, Marikina City', '', '942-6724', '0922-873-7704', NULL, 'Delegate', 'SENIOR FINANCE OFFICER', '', '', '2016-08-06 13:04:34', '2016-08-06 13:04:34', 0, 0, '30ffn32o', NULL),
+(477, '', 'TEO ANGELO ', 'ESGUERRA', 'ARTWORK, INC.', '38 Apitong Street, Marikina Height, Marikina City', '', '942-6724', '0922-873-7715', NULL, 'Delegate', 'GRAPHIC ARTIST', '', '', '2016-08-06 13:05:03', '2016-08-06 13:05:03', 0, 0, '5cp1pb5', NULL),
+(478, '', 'JOHNNY M. ', 'KING, JR.', 'BIKE PLUS ', '720 Caromina Street, Quiapo, Manila', 'jooneking@yahoo.com', '733-9488', '0917-842-2976', NULL, 'Delegate', 'PRESIDENT', '', '', '2016-08-06 13:05:21', '2016-08-06 13:05:21', 0, 0, '33m8ipm55v', NULL),
+(479, '', 'ALVIN C. ', 'CHENG', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'acc.alvin@yahoo.com', '374-7888 (257)', '0917-514-0427', NULL, 'Delegate', 'SENIOR MANAGER', '', '', '2016-08-06 13:05:34', '2016-08-06 13:05:34', 0, 0, '1dqirxulv', NULL),
+(480, '', 'DANTE N. ', 'CASTILLO', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'dante.castillo@rrj.com.ph', '374-7888 (257)', '0917-899-0246', NULL, 'Delegate', 'SALES MANAGER', '', '', '2016-08-06 13:05:47', '2016-08-06 13:05:47', 0, 0, '3rvffnskm', NULL),
+(481, '', 'NECYPHORA M. ', 'RICACHO', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'necy.ricacho@rrj.com.ph', '374-7888 (257)', '0917-522-2034', NULL, 'Delegate', 'OPERATIONS MANAGER', '', '', '2016-08-06 13:06:06', '2016-08-06 13:06:06', 0, 0, '9e672js4g', NULL),
+(482, '', 'RUEL ', 'TECSON', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'rueltecson_feuso@yahoo.com.ph', '374-7888 (257)', '0917-812-1885', NULL, 'Delegate', 'SALES MANAGER', '', '', '2016-08-06 13:06:26', '2016-08-06 13:06:26', 0, 0, 'nxkf2bbieh', NULL),
+(483, '', 'FRANCIS REYNALD ', 'SANTIAGO', 'BLUES BROTHERS INC.', 'No. 15 San Antonio Street, SFDM Quezon City', 'francis.santiago@rrj.com.ph', '374-7888 (257)', '0917-800-4926', NULL, 'Delegate', 'SALES MANAGER', '', '', '2016-08-06 13:06:47', '2016-08-06 13:06:47', 0, 0, '7s5p975fhi', NULL),
+(484, '', 'J. RODION ', 'UY', 'BREAD BY PATTY CORP.', 'Sto. Nino St., Sitio Nonoc, Tabonok, Talisay City Cebu', 'jrodion@gmail.com', '', '0917-322-2219', NULL, 'Delegate', 'PRESIDENT', '', '', '2016-08-06 13:10:20', '2016-08-06 13:10:20', 0, 0, 'hxv5oxudw8', NULL),
+(485, '', 'LEO ', 'MARQUEZ', 'BREAD BY PATTY CORP.', '', 'leo@ixbase.net', '', '0917-555-8169', NULL, 'Delegate', 'CIO', '', '', '2016-08-06 13:10:35', '2016-08-06 13:10:35', 0, 0, 'xb38fbsw', NULL),
+(486, '', 'NICOLE STEFFANI P. ', 'KING', 'BUILT CYCLES', '720 Caromina Street, Quiapo, Manila', 'king_nicolestef@yahoo.com', '733-9488', '0917-850-0728', NULL, 'Delegate', 'OWNER', '', '', '2016-08-06 13:11:09', '2016-08-06 13:11:09', 0, 0, '22q6zpil', NULL),
+(487, '', 'JOANNA JANE D. ', 'CHUNG', 'CASAMIA FURNITURE CENTER, INC. (OUR HOME)', 'SM Corporate Office, Bay 272 Bldg. B, J.W. Diokno Bouelvard, Mall of Asia Complex, Pasay City', 'Joanna.D.Chung@sm-shoemart.com', '831-8000 (82330)', '0917-809-0138', NULL, 'Delegate', 'VICE PRESIDENT OPERATIONS', '', '', '2016-08-06 13:14:04', '2016-08-06 13:14:04', 0, 0, 'ide34vfdhf', NULL),
+(488, '', 'MICHAEL ', 'CO', 'CEBU OVERSEA HARDWARE CO., INC.', '2246 Don Chino Roces Avenue, Makati City', 'michaelco.chbc@gmail.com', '800-6420', '', NULL, 'Delegate', 'VP SALES & MARKETING', '', '', '2016-08-06 13:14:26', '2016-08-06 13:14:26', 0, 0, 'r7zm5l7w1q', NULL),
+(489, '', 'JAMES ', 'CO', 'CEBU OVERSEA HARDWARE CO., INC.', '2246 Don Chino Roces Avenue, Makati City', 'james.co@cebuoversea.com', '800-6420', '', NULL, 'Delegate', 'GENERAL MANAGER', '', '', '2016-08-06 13:14:39', '2016-08-06 13:14:39', 0, 0, 'dy7s9q132', NULL),
+(490, '', 'MA. LOURDES C.', ' DE VENECIA', 'CINDERELLA MAKETING CORP.', 'Cinderella Building, 825 E. delos Santos, Quezon City', 'maloudevenecia@yahoo.com', '926-9091', '', NULL, 'Delegate', 'MARKETING DIRECTOR', '', '', '2016-08-06 13:14:59', '2016-08-06 13:14:59', 0, 0, '55l310tv70', NULL),
+(491, '', 'AIMEE ', 'NOLASCO', 'CINDERELLA MAKETING CORP.', 'Cinderella Building, 825 E. delos Santos, Quezon City', 'aimeenolasco@cinderellaph.com', '926-9091', '0922-886-4297', NULL, 'Delegate', 'MDSG. & PRICING COMPTROLLER', '', '', '2016-08-06 13:15:14', '2016-08-06 13:15:14', 0, 0, '15g2y8xuxq', NULL),
+(492, '', 'PAUL Y. ', 'TAN', 'CITISTORES INC.', '1919-B, E, Amang Rodriguez Sr. Avenue,  Rosario, Pasig City', 'pyt@citistores.com', '642-7868', '', NULL, 'Delegate', 'CEO', '', '', '2016-08-06 13:15:29', '2016-08-06 13:15:29', 0, 0, 'y627gdmw', NULL),
+(493, '', 'ANTONIO Y. ', 'TAN', 'CITISTORES INC.', '1919-B, E, Amang Rodriguez Sr. Avenue,  Rosario, Pasig City', 'ayt@citistores.com', '642-7868', '', NULL, 'Delegate', 'SVP', '', '', '2016-08-06 13:16:07', '2016-08-06 13:16:07', 0, 0, 's0zgk1la7l', NULL),
+(494, '', 'MELCHOR ', 'GASPAR', 'CITISTORES INC.', '1919-B, E, Amang Rodriguez Sr. Avenue,  Rosario, Pasig City', 'mgg@citistores.com', '642-7868', '', NULL, 'Delegate', 'COO', '', '', '2016-08-06 13:16:56', '2016-08-06 13:16:56', 0, 0, '1v6s49yhvb', NULL),
+(495, '', 'Ma. Luisa I.', '', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 13:17:23', '2016-08-06 13:17:23', 0, 0, '1obuunj72s', NULL),
+(496, '', 'MA. LUISA I. ', 'PARAS', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'lparas@rustylopez.com', '941-2868', '0923-734-0845', NULL, 'Delegate', 'HR MANAGER', '', '', '2016-08-06 13:17:39', '2016-08-06 13:17:39', 0, 0, 'zzovsa3e8', NULL),
+(497, '', 'MARIA RACHEL NICOLETTE D. ', 'LOPEZ', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'niczlopez@yahoo.com', '941-2868', '', NULL, 'Delegate', 'BRAND MANAGER', '', '', '2016-08-06 13:18:49', '2016-08-06 13:18:49', 0, 0, 'flas08p27', NULL),
+(498, '', 'BENEDICTO L. ', 'VILLAFUERTE', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'benedict@rustylopez.com', '941-2868', '', NULL, 'Delegate', 'MIS MANAGER', '', '', '2016-08-06 13:19:12', '2016-08-06 13:19:12', 0, 0, '17nlt3feoe', NULL),
+(499, '', 'NANCY N. ', 'PARAJES', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'nancy.parajes@gmail.com', '941-2868', '', NULL, 'Delegate', 'BD HEAD', '', '', '2016-08-06 13:19:27', '2016-08-06 13:19:27', 0, 0, 'plkivu8f', NULL),
+(500, '', 'JOSEPHINE R. ', 'TAN', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'jtan@rustylopez.com', '941-2868', '', NULL, 'Delegate', 'CONCESSIONS MANAGER', '', '', '2016-08-06 13:19:58', '2016-08-06 13:19:58', 0, 0, '6zmwpsvh', NULL),
+(501, '', 'BARBARA O. ', 'VILLAS', 'CONQUEROR INTERNATIONAL, INC.', 'No. 88 LSL Building, E. Manalo Ave. Sto. Nino, Marikina City', 'bovillas@gmail.com', '941-2868', '', NULL, 'Delegate', 'AVP - OPERATIONS', '', '', '2016-08-06 13:20:16', '2016-08-06 13:20:16', 0, 0, 'gjhyb2qqh', NULL),
+(502, '', 'STEPHEN ', 'SARMIENTO', 'CREATIVE LIGHTING ASIA PHLIPPINES, INC.', 'One Global Place, Level 10-a, 5th Avenue& 25th St., BOC, Taguig', 'stephen.ph@cla.asia', '917-0258', '', NULL, 'Delegate', 'MANAGING DIRECTOR', '', '', '2016-08-06 13:20:32', '2016-08-06 13:20:32', 0, 0, 'axynyheyq', NULL),
+(503, '', 'DELLA ', 'SARMIENTO', 'CREATIVE LIGHTING ASIA PHLIPPINES, INC.', 'One Global Place, Level 10-a, 5th Avenue& 25th St., BOC, Taguig', 'della.sarmiento@cla.asia', '917-0258', '', NULL, 'Delegate', 'FINANCE DIRECTOR', '', '', '2016-08-06 13:20:49', '2016-08-06 13:20:49', 0, 0, 'a3mwxwed', NULL),
+(504, '', 'donald', 'magbayao', 'modern retail', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 13:35:05', '2016-08-06 13:35:05', 0, 0, 'avthjn8d9', NULL),
+(505, '', 'donald', 'magbayao', 'modern retail', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:32:38', '2016-08-06 14:32:38', 0, 0, 'o62lg1cx', NULL),
+(506, '', 'Valerine ', 'Tang Hing', 'Dermasia Corporation', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:35:00', '2016-08-06 14:35:00', 0, 0, 'f3hst6nm1u', NULL),
+(507, '', 'Steve Roman', 'Cabitac', 'DOLE Philippines', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:35:41', '2016-08-06 14:35:41', 0, 0, '3nntu9r77', NULL),
+(508, '', 'Nilo', 'Calatrava II', 'DOLE Philippines Inc', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:37:44', '2016-08-06 14:37:44', 0, 0, '1di8y7hx', NULL),
+(509, '', 'EFIGENIO ', 'DE CASTRO', 'Dole Philippines Inc 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:40:17', '2016-08-06 14:40:17', 0, 0, 'jwz02fjf8v', NULL),
+(510, '', 'JOSE ANGELO', 'GAMBOA', 'Dole Philippines Inc. 2', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:40:51', '2016-08-06 14:40:51', 0, 0, '9u9hphlh5', NULL),
+(511, '', 'KAREN GALE ', 'ONG', 'EDGE INTERLINKS CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:41:39', '2016-08-06 14:41:39', 0, 0, 'a64q7h2vt', NULL),
+(512, '', 'RONALDO ', 'BUGAY', 'ELANVITAL DEVELOPMENT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:42:10', '2016-08-06 14:42:10', 0, 0, 'oa93cnc5', NULL),
+(513, '', 'DJ ', 'RECLAMADO', 'EMPIRE LUXURY LIFESTYLECORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:42:35', '2016-08-06 14:42:35', 0, 0, '5x0rfy3', NULL),
+(514, '', 'RENEE ', 'FUNTANILLA', 'FLAWLESS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:43:41', '2016-08-06 14:43:41', 0, 0, '9u6ti3u04', NULL),
+(515, '', 'MARIVEL', 'VILLANUEVA', 'FRESH & FAMOUS FOODS INC. (GREENWICH)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:44:17', '2016-08-06 14:44:17', 0, 0, '34s7xbp78l', NULL),
+(516, '', 'SUZANNE ', 'GALANG', 'GOURDO&#39;S INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:44:49', '2016-08-06 14:44:49', 0, 0, 'k3ukazatfs', NULL),
+(517, '', 'SUSAN ', 'SAN MIGUEL', 'GOURDO&#39;S INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:45:11', '2016-08-06 14:45:11', 0, 0, '291h81u0yc', NULL),
+(518, '', 'ANNA MARIE ', 'MOLINA', 'GREENFIELD DEVELOPMENTCORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:45:33', '2016-08-06 14:45:33', 0, 0, '2dwxvwtlqy', NULL),
+(519, '', 'CIARA ', 'RAMOS', 'GREENFIELD DEVELOPMENTCORP. 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:46:02', '2016-08-06 14:46:02', 0, 0, '4w152ba9x', NULL),
+(520, '', 'ARDEN ', 'JACELA', 'GREENFIELD DEVELOPMENTCORP. 2', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:46:27', '2016-08-06 14:46:27', 0, 0, 'b3z1ft2yb', NULL),
+(521, '', 'EVANGELINE ', 'VILLAVER', 'GREENFIELD DEVELOPMENTCORP. 3', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:46:51', '2016-08-06 14:46:51', 0, 0, '43jbuhdw', NULL),
+(522, '', 'MARLOU ', 'PAMBID', 'GREENFIELD DEVELOPMENTCORP. 4', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:47:13', '2016-08-06 14:47:13', 0, 0, '37xe9x0v4', NULL),
+(523, '', 'PATRICIA GAIL ', 'DAQUIOAG', 'GREENFIELD DEVELOPMENTCORP. 5', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:47:31', '2016-08-06 14:47:31', 0, 0, 'btlwxe11', NULL),
+(524, '', 'JOHANNA ', 'CLAVECILLA', 'GREENFIELD DEVELOPMENTCORP. 6', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:47:50', '2016-08-06 14:47:50', 0, 0, 'ea6gyfpgcz', NULL),
+(525, '', 'DIANNE CAMILLE ', 'TERAN', 'GREENFIELD DEVELOPMENTCORP. 7', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:48:09', '2016-08-06 14:48:09', 0, 0, '1yy1ox739z', NULL),
+(526, '', 'RICCI', 'MANGIO', 'GURU PROPERTY DEVT. & MGNT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:48:32', '2016-08-06 14:48:32', 0, 0, '51oppeaico', NULL),
+(527, '', 'MARIAN ', 'ROBLES', 'GURU PROPERTY DEVT. & MGNT CORP. 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:48:51', '2016-08-06 14:48:51', 0, 0, 'vpnvlypqee', NULL),
+(528, '', 'AQUABELLE ', 'GLORIA', 'GURU PROPERTY DEVT. & MGNT CORP. 2', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:49:12', '2016-08-06 14:49:12', 0, 0, '1irmyrly2d', NULL),
+(529, '', 'KAREN ', 'MARTE', 'GURU PROPERTY DEVT. & MGNT CORP. 3', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:49:34', '2016-08-06 14:49:34', 0, 0, '23n992uxii', NULL),
+(530, '', 'MIYA', 'ESPINOSA', 'GURU PROPERTY DEVT. & MGNT CORP. 4', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:49:56', '2016-08-06 14:49:56', 0, 0, '4xpbkc4ll', NULL),
+(531, '', 'SHIRLEY', 'MAGALLANES', 'GURU PROPERTY DEVT. & MGNT CORP. 5', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:50:20', '2016-08-06 14:50:20', 0, 0, 'a79kemyf', NULL),
+(532, '', 'JANICE', 'NAGA', 'GURU PROPERTY DEVT. & MGNT CORP. 6', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:50:46', '2016-08-06 14:50:46', 0, 0, '3met3mctj', NULL),
+(533, '', 'LYNDA', 'OELSEN', 'HEMISPHERE LEO BURNETT, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:51:13', '2016-08-06 14:51:13', 0, 0, 'pnq95gpd', NULL),
+(534, '', 'VANESSA', 'DINGCONG', 'HEMISPHERE LEO BURNETT, INC.1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:52:24', '2016-08-06 14:52:24', 0, 0, 'v3v2wf1qne', NULL),
+(535, '', 'AUDRAE ROSE ', 'ALILING', 'ILOILO SUPERMART', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:53:01', '2016-08-06 14:53:01', 0, 0, '6nehmi517', NULL),
+(536, '', 'MARJORIE V.', 'GABAYERON', 'ILOILO SUPERMART1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:53:55', '2016-08-06 14:53:55', 0, 0, '2pk0dh1dvi', NULL),
+(537, '', 'LYNNIE', 'JEMENA', 'ILOILO SUPERMART 2', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:54:27', '2016-08-06 14:54:27', 0, 0, 'm9hg2zkj', NULL),
+(538, '', 'CRISTINE JOY ', 'ESTILO', 'ILOILO SUPERMART 3', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:54:56', '2016-08-06 14:54:56', 0, 0, 'i914ln2bxi', NULL),
+(539, '', 'MARILEN ', 'YOUNG', 'ISECURE NETWORKS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:55:17', '2016-08-06 14:55:17', 0, 0, 'rehd9kc4', NULL),
+(540, '', 'MARY JADE ', 'ROXAS-DIVINAGRACIA', 'ISLA LIPANA & CO.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:55:41', '2016-08-06 14:55:41', 0, 0, '2y6zsptcq8', NULL),
+(541, '', 'IRENE ', 'GOZUN', 'ISLANDS SOUVENIRS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:56:03', '2016-08-06 14:56:03', 0, 0, 'sobvlq1u', NULL),
+(542, '', 'MICHAEL M.', 'DISPO', 'ISLANDS SOUVENIRS INC. 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:56:31', '2016-08-06 14:56:31', 0, 0, '3c1ulxgc', NULL),
+(543, '', 'CAMILLE', 'ALDEGUER', 'ISLANDS SOUVENIRS INC. 3', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:56:53', '2016-08-06 14:56:53', 0, 0, '4j6znv09q', NULL),
+(544, '', 'JOHN L.', 'GAISANO III', 'JHG TRADING INC. (JS GAISANO)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:57:28', '2016-08-06 14:57:28', 0, 0, '6zx5kjxqv', NULL),
+(545, '', 'JOHANNA  GAISANO', 'GAN', 'JHG TRADING INC. (JS GAISANO) 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:58:24', '2016-08-06 14:58:24', 0, 0, '1kxluzvl53', NULL),
+(546, '', 'GILLIAN ', 'GONZALEZ', 'L&#39;OREAL PHILIPPINES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:58:45', '2016-08-06 14:58:45', 0, 0, '14qi3qszq', NULL),
+(547, '', 'AIRA', 'SERRANO-PLAZA', 'L&#39;OREAL PHILIPPINES, INC.1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:59:07', '2016-08-06 14:59:07', 0, 0, 'twxqfwl2', NULL),
+(548, '', 'JP', 'SARABIA', 'LOSAR OPTICS INC. (SARABIA OPTICAL)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 14:59:30', '2016-08-06 14:59:30', 0, 0, '4pxx5rv', NULL),
+(549, '', 'ELMA', 'DE LEON', 'LUCKY CIRCLE CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:00:01', '2016-08-06 15:00:01', 0, 0, '77pue5f7r', NULL),
+(550, '', 'ELMA', ' DE LEON', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:00:40', '2016-08-06 15:00:40', 0, 0, 'vrp15vnj', NULL),
+(551, '', 'IV LENIN ', 'MASBAD', 'LUCKY CIRCLE CORPORATION 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:01:25', '2016-08-06 15:01:25', 0, 0, '1cobbmgk', NULL),
+(552, '', 'ROGELIO', 'TORRES, JR.', 'LUCKY CIRCLE CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:01:57', '2016-08-06 15:01:57', 0, 0, '3255fy0185', NULL),
+(553, '', 'HELEN', 'CORTEZ', 'LUXASIA RETAIL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:02:22', '2016-08-06 15:02:22', 0, 0, '9tzm3bv8', NULL),
+(554, '', 'RAFFIE', 'JAVELONA', 'MATCHMOVE PAY PTE LTD', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:02:54', '2016-08-06 15:02:54', 0, 0, '1msneznq', NULL),
+(555, '', 'MARY JANE', 'LANDRITO', 'MEERA ENTERPRISES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:03:30', '2016-08-06 15:03:30', 0, 0, 'ui456r3r', NULL),
+(556, '', 'MA. TERESA ', 'SANTOS', 'MEERA ENTERPRISES, INC. 1', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:03:56', '2016-08-06 15:03:56', 0, 0, 'wk7r1lj7', NULL),
+(557, '', 'neva jane', '', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-08 11:04:25', '2016-08-08 11:04:25', 0, 0, '2sue5lgay', 'Pre-Paid'),
+(558, '', 'GEMMALYN', 'DIMATATAC', 'MEERA ENTERPRISES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:05:21', '2016-08-06 15:05:21', 0, 0, 'aygky4x6s', NULL),
+(559, '', 'ROLAINE', 'BUSTOS', 'MEERA ENTERPRISES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:05:56', '2016-08-06 15:05:56', 0, 0, '1wk1dn1qo8', NULL),
+(560, '', 'EDWIN', 'BESMONTE', 'MEERA ENTERPRISES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:06:38', '2016-08-06 15:06:38', 0, 0, 'rmunyohy', NULL),
+(561, '', 'RAMESH', 'DARGANI', 'MEERA ENTERPRISES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:07:01', '2016-08-06 15:07:01', 0, 0, '2kl8zjobp', NULL),
+(562, '', 'JANE', 'ORTEGA', 'MEERA ENTERPRISES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:07:23', '2016-08-06 15:07:23', 0, 0, '1bfoppr', NULL),
+(563, '', 'SUSETTE', 'MARASIGAN', 'MERCURY DRUG CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:07:46', '2016-08-06 15:07:46', 0, 0, '6sqikv9im', NULL),
+(564, '', 'MA. ASUNCION', 'ASIS', 'MERCURY DRUG CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:08:08', '2016-08-06 15:08:08', 0, 0, 'vyuq5aku', NULL),
+(565, '', 'MARTIN', 'GUMAYAN', 'MERCURY DRUG CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:08:30', '2016-08-06 15:08:30', 0, 0, '3oa9f9ks', NULL),
+(566, '', 'ARTHUR', 'EMMANUEL', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:08:53', '2016-08-06 15:08:53', 0, 0, 'h5ylvft', NULL),
+(567, '', 'JONATHAN JUAN ', 'MORENO', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:09:23', '2016-08-06 15:09:23', 0, 0, 'ikqvfdjbt', NULL),
+(568, '', 'HARVEY', 'ONG', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:09:44', '2016-08-06 15:09:44', 0, 0, '4zhmwowdj', NULL),
+(569, '', 'KARAN', 'MALANI', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:10:07', '2016-08-06 15:10:07', 0, 0, '3c5uf3a', NULL),
+(570, '', 'LIA', 'CHIPECO', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:10:31', '2016-08-06 15:10:31', 0, 0, 'atsfz7hhy', NULL),
+(571, '', 'ROSE ', 'JOSE', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:10:50', '2016-08-06 15:10:50', 0, 0, '1fepss25', NULL),
+(572, '', 'JENE NICOLE ', 'GELLE', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:11:09', '2016-08-06 15:11:09', 0, 0, '2ascn6hre', NULL),
+(573, '', 'JOYCE ', 'MIRABUENO', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:11:27', '2016-08-06 15:11:27', 0, 0, 'b9yhub8oo', NULL),
+(574, '', 'MARIE GRACE', 'ONG', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:11:50', '2016-08-06 15:11:50', 0, 0, '243z2hiu', NULL),
+(575, '', 'LIMUEL ', 'ULANDAY', 'METRO RETAIL STORES GROUP, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:12:09', '2016-08-06 15:12:09', 0, 0, '61rhew', NULL),
+(576, '', 'JENNIFER ALICE ', 'RADKE', 'MONSTER KITCHEN INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:12:29', '2016-08-06 15:12:29', 0, 0, 'qioxdegd', NULL),
+(577, '', 'CHATO ', 'GONZALES', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:12:46', '2016-08-06 15:12:46', 0, 0, '12o9ja1zh', NULL),
+(578, '', 'ANNETTE ', 'QUINTO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:13:05', '2016-08-06 15:13:05', 0, 0, '51hav1imb', NULL),
+(579, '', 'VANGIE ', 'RIPARIP', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:13:27', '2016-08-06 15:13:27', 0, 0, 'aisg2muo0', NULL),
+(580, '', 'LERMA ', 'VILLAPANDO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:13:45', '2016-08-06 15:13:45', 0, 0, 'p8m5c68n', NULL),
+(581, '', 'MERCY ', 'PASTRANA', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:14:04', '2016-08-06 15:14:04', 0, 0, '82d2rkjc', NULL),
+(582, '', 'SALLY ', 'FILOMENO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:14:26', '2016-08-06 15:14:26', 0, 0, '23gqyltfdz', NULL),
+(583, '', 'ANA MAY ', 'ABAYAN', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:14:47', '2016-08-06 15:14:47', 0, 0, '7er0j9dx', NULL),
+(584, '', 'EVELYN ', 'MALLARI', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:15:04', '2016-08-06 15:15:04', 0, 0, '2brlylacpb', NULL),
+(585, '', 'JESSICA ', 'HIDALGO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:15:21', '2016-08-06 15:15:21', 0, 0, '18rea6i66g', NULL),
+(586, '', 'ROWENA', 'PEREZ', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:15:42', '2016-08-06 15:15:42', 0, 0, '56jg7d3w', NULL),
+(587, '', 'ELEANOR ', 'AREVALO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:16:09', '2016-08-06 15:16:09', 0, 0, '141f4ber9', NULL),
+(588, '', 'DANILO ', 'TRINIDAD', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:16:28', '2016-08-06 15:16:28', 0, 0, '3y6hs7rv', NULL),
+(589, '', 'KARLO ANGELO ', 'BALBUENA', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:16:46', '2016-08-06 15:16:46', 0, 0, '22q11ejo', NULL),
+(590, '', 'KRISTINE ', 'BORDALES', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:17:06', '2016-08-06 15:17:06', 0, 0, '14d36tf2j', NULL),
+(591, '', 'JULIET', 'GAKO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:17:29', '2016-08-06 15:17:29', 0, 0, '3yc907rggj', NULL),
+(592, '', 'AURA ', 'OBRA', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:17:49', '2016-08-06 15:17:49', -1, 0, 'flelj4xn', NULL),
+(593, '', 'ALLAN MICHAEL ', 'LONGNO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:18:13', '2016-08-06 15:18:13', 0, 0, 'a4zub5lmm', NULL),
+(594, '', 'ELVIRA ', 'LOCSIN', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:18:33', '2016-08-06 15:18:33', 0, 0, 'a0py0tahv', NULL),
+(595, '', 'ANA LEAH ', 'HIDALGO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:18:51', '2016-08-06 15:18:51', 0, 0, '6twbjxpog', NULL),
+(596, '', 'EDNA', 'DE LEON', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:19:13', '2016-08-06 15:19:13', 0, 0, '1oft9ievg5', NULL),
+(597, '', 'MARIZHEL', 'SALAZAR', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:19:38', '2016-08-06 15:19:38', 0, 0, '95bflvs', NULL),
+(598, '', 'ARLENE', 'THAY', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:20:02', '2016-08-06 15:20:02', 0, 0, '134uka7is', NULL),
+(599, '', 'LAURENCE JOY ', 'SANTOS', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:20:21', '2016-08-06 15:20:21', 0, 0, '3t3xxuvo', NULL);
+INSERT INTO `tbl_persons` (`ID`, `Salutation`, `FirstName`, `LastName`, `CompanyName`, `Address`, `Email`, `Telephonefax`, `Mobile`, `MobileNo`, `BusinessPhone`, `Designation`, `Province`, `CityMunicipality`, `DateRegistered`, `DateAttended`, `isPicked`, `isAllowed`, `BarcodeID`, `Remarks`) VALUES
+(600, '', 'CHARLES ', 'DEE', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:20:40', '2016-08-06 15:20:40', 0, 0, 'kdmrbdsu', NULL),
+(601, '', 'JAMES ', 'ABUAN', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:20:59', '2016-08-06 15:20:59', 0, 0, '719e2txbo', NULL),
+(602, '', 'XANDRA', 'RAMOS-PADILLA', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:21:40', '2016-08-06 15:21:40', 0, 0, '7vexs21o5', NULL),
+(603, '', 'BEA ANDREA ', 'TORRES', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:22:06', '2016-08-06 15:22:06', 0, 0, '2s6khbqiy8', NULL),
+(604, '', 'JONALYN', 'ANG', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:22:26', '2016-08-06 15:22:26', 0, 0, 'ftu66afwx3', NULL),
+(605, '', 'CAROLE ', 'TOCOL', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:22:45', '2016-08-06 15:22:45', 0, 0, '6bjpnw93m', NULL),
+(606, '', 'DEBORAH ', 'ACOSTA-CAJUSTIN', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:23:16', '2016-08-06 15:23:16', 0, 0, '1gxjb1gx4y', NULL),
+(607, '', 'MARIO ', 'BARRIENTOS,JR.', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:24:48', '2016-08-06 15:24:48', 0, 0, '15b6bl2y5', NULL),
+(608, '', 'EDWIN ', 'DIPALAC', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:25:40', '2016-08-06 15:25:40', 0, 0, 'r7qaon6vr', NULL),
+(609, '', 'GAY CONCEPCION ', 'SOMERA', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:26:11', '2016-08-06 15:26:11', 0, 0, '2rcck5q0ro', NULL),
+(610, '', 'MYRNA', ' RIVERA', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:26:43', '2016-08-06 15:26:43', 0, 0, '5cyifazhmk', NULL),
+(611, '', 'LOLITA', ' REGALADO', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:27:20', '2016-08-06 15:27:20', 0, 0, '102mjlhlwg', NULL),
+(612, '', 'ERLINDA ', 'LAHAYLAHAY', 'NATIONAL BOOK STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:27:57', '2016-08-06 15:27:57', 0, 0, '2erkfj363x', NULL),
+(613, '', 'FAUSTINO ', ' ROBERTO', 'PAULINES GROUP INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:28:43', '2016-08-06 15:28:43', 0, 0, '2mnl56mkq', NULL),
+(614, '', 'ROBERT ', 'ROBERTO', 'PAULINES GROUP INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:29:23', '2016-08-06 15:29:23', 0, 0, '93h833zww', NULL),
+(615, '', 'LORALIE ', ' TOBERTO', 'PAULINES GROUP INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:30:00', '2016-08-06 15:30:00', 0, 0, '61n81jfxn', NULL),
+(616, '', 'MARYLOU ', 'ARCEO', 'PERFECT GOAL INTERNATIONAL INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:30:27', '2016-08-06 15:30:27', 0, 0, '1iig7aela4', NULL),
+(617, '', 'EDNA', 'ONTIVEROS', 'PHIL. AMALGAMATED SUPERMARKETS ASSOCIATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:30:52', '2016-08-06 15:30:52', 0, 0, '5spnbm66t', NULL),
+(618, '', 'ARJIE', 'LIM', 'PHIL. AMALGAMATED SUPERMARKETS ASSOCIATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:31:29', '2016-08-06 15:31:29', 0, 0, '3hxf323sy0', NULL),
+(619, '', 'ROY', 'CHUA', 'PHIL. AMALGAMATED SUPERMARKETS ASSOCIATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:31:54', '2016-08-06 15:31:54', 0, 0, '81frsoony', NULL),
+(620, '', 'JOAN MYREL', 'TEODORO', 'PHIL. AMALGAMATED SUPERMARKETS ASSOCIATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:32:18', '2016-08-06 15:32:18', 0, 0, '3830vpn8cx', NULL),
+(621, '', 'ANN CHRISTINE', 'PALISOC', 'PHILIPPINE WACOAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:32:38', '2016-08-06 15:32:38', 0, 0, '13lj2h6hlos', NULL),
+(622, '', 'LORENA', ' CRUZ', 'PHILIPPINE WACOAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:32:56', '2016-08-06 15:32:56', 0, 0, '5pivt8nj7', NULL),
+(623, '', 'MIRIAM', ' PALABRICA', 'PIONEER PROFESSIONAL ACADEMY OF ASIA', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:33:12', '2016-08-06 15:33:12', 0, 0, '2ny2q6fu9y', NULL),
+(624, '', 'MAYNARD', ' BULOSAN', 'PRIMER GROUP OF COMPANIES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:33:29', '2016-08-06 15:33:29', 0, 0, '6oqt5zh6r', NULL),
+(625, '', 'ROBERT', 'GO', 'PRINCE RETAIL GROUP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:33:48', '2016-08-06 15:33:48', 0, 0, '1j3cp81o', NULL),
+(626, '', 'RHEA JANICE', 'GO-LAO', 'PRINCE RETAIL GROUP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:34:08', '2016-08-06 15:34:08', 0, 0, 'atk6ai5x1', NULL),
+(627, '', 'RHEA JANICE', 'GO-LAO', 'PRINCE RETAIL GROUP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:34:34', '2016-08-06 15:34:34', 0, 0, '3mtyuzu10', NULL),
+(628, '', 'NELSON', 'GO', 'PRINCE WAREHOUSE MANDAUE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:34:56', '2016-08-06 15:34:56', 0, 0, 'ss8rxs4wnr', NULL),
+(629, '', 'BLAKE NELSON', 'GO', 'PRINCE WAREHOUSE MANDAUE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:35:15', '2016-08-06 15:35:15', 0, 0, 'pjjvjnwns1', NULL),
+(630, '', 'CRIS NELSON', 'GO', 'PRINCE WAREHOUSE MANDAUE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:35:34', '2016-08-06 15:35:34', 0, 0, 'feca9djmlk', NULL),
+(631, '', 'LIZA', 'LABRADOR', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:35:55', '2016-08-06 15:35:55', 0, 0, 'puys0so1yi', NULL),
+(632, '', 'RUSSEL', 'ERNI', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:36:22', '2016-08-06 15:36:22', 0, 0, 'ez647msb6m', NULL),
+(633, '', 'LAWRENCE', 'NAVARRO', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:36:52', '2016-08-06 15:36:52', 0, 0, '6kdm2ulal', NULL),
+(634, '', 'NEYSA', 'BACANI', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:37:13', '2016-08-06 15:37:13', 0, 0, '8rayo5ojo', NULL),
+(635, '', 'ARLENE', 'GUTIERREZ', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:37:36', '2016-08-06 15:37:36', 0, 0, '517v8w1', NULL),
+(636, '', 'RONICKO', 'CRUZ', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:38:02', '2016-08-06 15:38:02', 0, 0, '6p7a2td', NULL),
+(637, '', 'EMELY', 'ZAFE', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:38:21', '2016-08-06 15:38:21', 0, 0, '6qoexjsr', NULL),
+(638, '', 'WILLIAM', 'LLAGUNO', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:38:49', '2016-08-06 15:38:49', 0, 0, '4l16muf0tc', NULL),
+(639, '', 'CARLOU', 'VILLANUEVA', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:39:10', '2016-08-06 15:39:10', 0, 0, '25bczvkl35', NULL),
+(640, '', 'CHRISTINA', 'DAVID', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:39:32', '2016-08-06 15:39:32', 0, 0, 'wv0frkpio', NULL),
+(641, '', 'TOBY', 'CLAUDIO', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:40:05', '2016-08-06 15:40:05', 0, 0, '12cv6vt7n01', NULL),
+(642, '', 'MARC ', 'VINAS', 'QUORUM INTERNATIONAL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:40:22', '2016-08-06 15:40:22', 0, 0, '2ql57k6wr5', NULL),
+(643, '', 'ROSE SHARON PATRICIA ', 'DE GUZMAN', 'RADIUS TELECOMS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:40:47', '2016-08-06 15:40:47', 0, 0, '32iopgwj', NULL),
+(644, '', 'MYKIM', ' CRUZ', 'RADIUS TELECOMS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:41:07', '2016-08-06 15:41:07', 0, 0, '2o8jfhe0uq', NULL),
+(645, '', 'BERNISD VICTORIANO', '', 'RADIUS TELECOMS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:41:31', '2016-08-06 15:41:31', 0, 0, 'hrwyzich', NULL),
+(646, '', 'BERNISD', ' VICTORIANO', 'RADIUS TELECOMS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:41:51', '2016-08-06 15:41:51', 0, 0, '957v0at', NULL),
+(647, '', 'MICHELLE', 'HERMANO', 'RADIUS TELECOMS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:42:15', '2016-08-06 15:42:15', 0, 0, '82itji4d8', NULL),
+(648, '', 'TERRY', 'WATERHOUSE', 'REDGOODSS LTD', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:43:02', '2016-08-06 15:43:02', 0, 0, 'fxoe2hivc', NULL),
+(649, '', 'EDWIN', 'AVILLON', 'REPUBLIC CHEMICAL INDUSTRIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:43:27', '2016-08-06 15:43:27', 0, 0, '2m7svwkj9x', NULL),
+(650, '', 'GREYSON', 'TUDTUD', 'REPUBLIC CHEMICAL INDUSTRIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:43:47', '2016-08-06 15:43:47', 0, 0, 'bv33xrrhkf', NULL),
+(651, '', 'DENNIS', 'TALOSIG', 'REPUBLIC CHEMICAL INDUSTRIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:44:13', '2016-08-06 15:44:13', 0, 0, '1ijq540n7t', NULL),
+(652, '', 'MARITES', 'ALFARO', 'RIVERBANKS DEVELOPMENT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:44:36', '2016-08-06 15:44:36', 0, 0, 'nml8e8s3p', NULL),
+(653, '', 'PREACHY', 'ZORRILLA', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:44:57', '2016-08-06 15:44:57', 0, 0, '79tn6z6hw', NULL),
+(654, '', 'MARIE THERESE', 'LACSINA', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:45:24', '2016-08-06 15:45:24', 0, 0, '10tbir3o0n', NULL),
+(655, '', 'AUREA MARIE ', 'JUAN', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:45:43', '2016-08-06 15:45:43', 0, 0, '15wsrahtr7', NULL),
+(656, '', 'CHRISTINE ', 'SANCHEZ', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:46:03', '2016-08-06 15:46:03', 0, 0, 'puj6hx8', NULL),
+(657, '', 'KAROLYN', 'YUE', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:46:26', '2016-08-06 15:46:26', 0, 0, 'eg8s0gur', NULL),
+(658, '', 'SALLY', 'GARDOSE', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:46:47', '2016-08-06 15:46:47', 0, 0, '1eimu3lq21', NULL),
+(659, '', 'JEMINAH MAE ', 'CRUZ', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:47:08', '2016-08-06 15:47:08', 0, 0, 'etlhu50', NULL),
+(660, '', 'YVETTE ', 'LIM', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:47:26', '2016-08-06 15:47:26', 0, 0, '722bzh65i', NULL),
+(661, '', 'VALERIE ', 'CLAVIO', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:47:45', '2016-08-06 15:47:45', 0, 0, '1utdr8gnke', NULL),
+(662, '', 'VIRGINIA', 'GARCIA', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:48:03', '2016-08-06 15:48:03', 0, 0, '7jhel8gxb', NULL),
+(663, '', 'JENNIFER', 'MARANAN', 'ROBINSONS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:48:23', '2016-08-06 15:48:23', 0, 0, 'lkpcdsbjl', NULL),
+(664, '', 'FELICIA MARGARITA', 'MATEO', 'SHANGRI-LA PLAZA CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:49:54', '2016-08-06 15:49:54', 0, 0, 'bgkx5jul8', NULL),
+(665, '', 'KATRINA ANGELA ', 'DE LA PENA', 'STATION SQUARE EAST COMMERCIAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:50:13', '2016-08-06 15:50:13', 0, 0, '382g737q9', NULL),
+(666, '', 'MA. LOURDES', 'ALMIRA', 'STATION SQUARE EAST COMMERCIAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:50:34', '2016-08-06 15:50:34', 0, 0, 'q6pa3zdh', NULL),
+(667, '', 'JESSICA', 'TAN', 'STATION SQUARE EAST COMMERCIAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:50:56', '2016-08-06 15:50:56', 0, 0, 'aepwectox', NULL),
+(668, '', 'MARIE ESTELLA ', 'REYES', 'STATION SQUARE EAST COMMERCIAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:51:13', '2016-08-06 15:51:13', 0, 0, '151as8xjc', NULL),
+(669, '', 'WILBERT ', 'OLAP', 'STATION SQUARE EAST COMMERCIAL CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:51:30', '2016-08-06 15:51:30', 0, 0, '6n4inkxowjw', NULL),
+(670, '', 'DANLI ', 'CHAN', 'STIR ARCHITECTURE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:51:46', '2016-08-06 15:51:46', 0, 0, '2ohcetpdq3', NULL),
+(671, '', 'LEAH ', 'JOCSON', 'STORES SPECIALISTS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:52:04', '2016-08-06 15:52:04', 0, 0, '295ldeey', NULL),
+(672, '', 'SANDRA ', 'ANTONIO', 'STORES SPECIALISTS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:52:23', '2016-08-06 15:52:23', 0, 0, '1bbsak2m90', NULL),
+(673, '', 'MELANIE', 'CATANGHAL', 'STORES SPECIALISTS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:52:56', '2016-08-06 15:52:56', 0, 0, 'huqv1gogia', NULL),
+(674, '', 'MARIA CHRISTIEN FRANCES ', 'TAN', 'TCL MERCHANDISE BROKERAGE INC. (LCC)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:53:18', '2016-08-06 15:53:18', 0, 0, '3p21nij5', NULL),
+(675, '', 'MELANIE', 'CABRERA', 'TCL MERCHANDISE BROKERAGE INC. (LCC)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:53:44', '2016-08-06 15:53:44', 0, 0, 'scsedkn68z', NULL),
+(676, '', 'SHIELA MARIE ', 'NACHOR', 'TERRY S.A. INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:54:02', '2016-08-06 15:54:02', 0, 0, '5k5xse0m3', NULL),
+(677, '', 'HANNAH', 'OLID', 'TERRY S.A. INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:54:24', '2016-08-06 15:54:24', 0, 0, '3xxn2k150', NULL),
+(678, '', 'CAMILLE ', 'OLIVERAS', 'TERRY S.A. INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:54:45', '2016-08-06 15:54:45', 0, 0, '3vcza4bd', NULL),
+(679, '', 'LILIZETTE', 'ONG', 'TERRY S.A. INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:55:08', '2016-08-06 15:55:08', 0, 0, '9s1k2g4r8', NULL),
+(680, '', 'JOCELYN', 'DIAZ', 'TESTEX PHILS. REPRESENTATIVE OOFFICE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:56:53', '2016-08-06 15:56:53', 0, 0, '29boqltbee', NULL),
+(681, '', 'JOYCE', 'SIA', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:57:12', '2016-08-06 15:57:12', 0, 0, '14l9khj0a', NULL),
+(682, '', 'GINO ANGELO', 'YATCO', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:57:35', '2016-08-06 15:57:35', 0, 0, '14o5rce71', NULL),
+(683, '', 'MARK JOSEPH', 'CHUA', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:57:55', '2016-08-06 15:57:55', 0, 0, 'lavlzt33p', NULL),
+(684, '', 'MARK JOSEPH', 'CHUA', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:58:17', '2016-08-06 15:58:17', 0, 0, '2j0kk7y5t0', NULL),
+(685, '', 'ROCHELLE', 'TAN', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:58:40', '2016-08-06 15:58:40', 0, 0, '153yz5roa', NULL),
+(686, '', 'ALWYN', 'UY', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:59:00', '2016-08-06 15:59:00', 0, 0, '37nco6e77s', NULL),
+(687, '', 'KATRINA', 'NAVARRO', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:59:22', '2016-08-06 15:59:22', 0, 0, '114rq30wg', NULL),
+(688, '', 'BEATRICE', ' LIM', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 15:59:54', '2016-08-06 15:59:54', 0, 0, '10p3t6s52', NULL),
+(689, '', 'LLOYD', 'LIM', 'TFB INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:00:17', '2016-08-06 16:00:17', 0, 0, '75xlaay9og', NULL),
+(690, '', 'MICHAEL', 'KOA', 'THE FRENCH BAKER', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:00:47', '2016-08-06 16:00:47', 0, 0, '8uv4tl3g8', NULL),
+(691, '', 'PATRICK', 'CUA', 'THE NIELSEN COMPANY PHILS. INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:01:28', '2016-08-06 16:01:28', 0, 0, '3ik7namgfa0', NULL),
+(692, '', 'RIZZA', 'DADIVAS', 'THE NIELSEN COMPANY PHILS. INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:01:48', '2016-08-06 16:01:48', 0, 0, '3201op40km', NULL),
+(693, '', 'REMBRANT', 'TOLENTINO', 'TOSTINO CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:02:07', '2016-08-06 16:02:07', 0, 0, 'hwde4apa', NULL),
+(694, '', 'JUSTINE', 'TOLENTINO', 'TOSTINO CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:02:29', '2016-08-06 16:02:29', 0, 0, 'eqagakae7', NULL),
+(695, '', 'ROBERTO', 'ORTIZ', 'TOTAL NUTRITION CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:02:50', '2016-08-06 16:02:50', 0, 0, '8g1bgsdxv', NULL),
+(696, '', 'LAWRENCE', 'DOMINGO', 'TOTAL NUTRITION CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:03:17', '2016-08-06 16:03:17', 0, 0, 'hjztiracg', NULL),
+(697, '', 'MARCIAL', 'WAYAN', 'TRANSCOSMOS ASIA PHIIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:03:41', '2016-08-06 16:03:41', 0, 0, '5i9v3kvce', NULL),
+(698, '', 'HANNA ', 'BANG', 'TUBA N CO. LTD.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:03:58', '2016-08-06 16:03:58', 0, 0, 'bh4oanufe', NULL),
+(699, '', 'SU HYUN ', 'YOON', 'TUBA N CO. LTD.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:04:17', '2016-08-06 16:04:17', 0, 0, 'ao4xkgs9g', NULL),
+(700, '', 'NOEL ', 'HERRERA-LIM', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:04:33', '2016-08-06 16:04:33', 0, 0, '14nsj1gev', NULL),
+(701, '', 'REYNARD', 'FLORES', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:04:56', '2016-08-06 16:04:56', 0, 0, '2y95w7m6pg', NULL),
+(702, '', 'MARVIN ', 'MARANAN', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:05:15', '2016-08-06 16:05:15', 0, 0, 'd9ynn3x', NULL),
+(703, '', 'DENNIS NINO', 'GAMBOA', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:05:43', '2016-08-06 16:05:43', 0, 0, '16iypohnk', NULL),
+(704, '', 'CHRISTOPHER ', 'TORLAO', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:06:01', '2016-08-06 16:06:01', 0, 0, 'efzr0lhl04', NULL),
+(705, '', 'ANTONIO JOSE ', 'DAMASCO', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:06:19', '2016-08-06 16:06:19', 0, 0, '2waguqxkcp', NULL),
+(706, '', 'JOY ', 'BASCO', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:06:43', '2016-08-06 16:06:43', 0, 0, 'awcenmsug', NULL),
+(707, '', 'KAREN', 'FONACIER', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:07:03', '2016-08-06 16:07:03', 0, 0, '2s4fa0h0', NULL),
+(708, '', 'JOSE ROMMEL', 'CRUZ', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:07:25', '2016-08-06 16:07:25', 0, 0, 'ybqzaob6', NULL),
+(709, '', 'FERDINAND ', 'BRIGUERA', 'UNITED LABORATORIES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:07:43', '2016-08-06 16:07:43', 0, 0, 'oqa9x1o0', NULL),
+(710, '', 'REVIE ', 'SALVIO', 'UNIVERSITY OF ST. LA SALLE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:08:02', '2016-08-06 16:08:02', 0, 0, '50pa1ajw8', NULL),
+(711, '', 'MARYIOLE THERESE ', 'DEQUINTO', 'UNIVERSITY OF ST. LA SALLE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:08:22', '2016-08-06 16:08:22', 0, 0, '9kfmbc0p', NULL),
+(712, '', 'DINDO ', 'MEDINA', 'URATEX', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:08:41', '2016-08-06 16:08:41', 0, 0, '2ykir6irq4', NULL),
+(713, '', 'MYRA ', 'BAYTAN', 'URATEX', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:08:58', '2016-08-06 16:08:58', 0, 0, 'xf6f9mvc', NULL),
+(714, '', 'VIC ', 'PIELAGO', 'URATEX', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:09:22', '2016-08-06 16:09:22', 0, 0, '21f8ur0m9h', NULL),
+(715, '', 'LOUELLA ', 'SCOTT', 'VOGUE CONCEPTS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:09:40', '2016-08-06 16:09:40', 0, 0, 'b82kt1za', NULL),
+(716, '', 'CHARLES MATTHEW', 'GOSINGTIAN', 'WATERS PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:10:00', '2016-08-06 16:10:00', 0, 0, '317r75e63', NULL),
+(717, '', 'FERNANDO ', 'TONGSON', 'WATERS PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:10:19', '2016-08-06 16:10:19', 0, 0, '10lw07c5r', NULL),
+(718, '', 'JOSE RUEL', 'GODINO', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:10:40', '2016-08-06 16:10:40', 0, 0, '31c20xjvcn', NULL),
+(719, '', 'BENLY', 'OH', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:10:59', '2016-08-06 16:10:59', 0, 0, 'ay0i44xme', NULL),
+(720, '', 'LEOMAR', 'TOROTORO III', 'WING-ON INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:11:19', '2016-08-06 16:11:19', 0, 0, '69hahbjas', NULL),
+(721, '', 'GARY', 'ABELLO', 'ZMG WARD HOWELL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:11:37', '2016-08-06 16:11:37', 0, 0, 'gx5i6zshc', NULL),
+(722, '', 'MARIA LOURDES ', 'GOMEZ', 'ZMG WARD HOWELL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:11:57', '2016-08-06 16:11:57', 0, 0, '2zcbkhc', NULL),
+(723, '', 'JR ', 'LOPEZ VITO', 'ZMG WARD HOWELL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:12:18', '2016-08-06 16:12:18', 0, 0, '3cipw3c2', NULL),
+(724, '', 'ROMULO ', 'RAMOS', 'ZMG WARD HOWELL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:12:35', '2016-08-06 16:12:35', 0, 0, '9e9eub4x1', NULL),
+(725, '', 'EDEN FATIMA ', 'TAN', 'ABOITIZ LAND INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:14:23', '2016-08-06 16:14:23', 0, 0, '1243o5rr', NULL),
+(726, '', 'MARIA ANALYN ', 'ILAGAN', 'ABOITIZ LAND INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:15:00', '2016-08-06 16:15:00', 0, 0, '157tlcxcd', NULL),
+(727, '', 'JANNA MAY ', 'BACUIBAS', 'ADEBE REALTY COMPANY CORP. (CASH & CARRY)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:15:42', '2016-08-06 16:15:42', 0, 0, '58ffvh7', NULL),
+(728, '', 'MARCELO', 'SY TAN', 'CAGSAWA TRAVEL & TOURS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:16:25', '2016-08-06 16:16:25', 0, 0, 'a9n27gbcj', NULL),
+(729, '', 'DENEEL', 'ENRIQUEZ', 'CANG&#39;S INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:16:54', '2016-08-06 16:16:54', 0, 0, '89y9ds6u', NULL),
+(730, '', 'JOHN JUSTO ', 'VILLAMIEL', 'ARTWORK, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:17:38', '2016-08-06 16:17:38', 0, 0, '2uwp7vb4mh', NULL),
+(731, '', 'AQUABELLE', ' GLORIA', 'GURU PROPERTY DEVT. & MGNT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:18:38', '2016-08-06 16:18:38', 0, 0, '2z44vfhr', NULL),
+(732, '', 'MARIAN', 'ROBLES', 'GURU PROPERTY DEVT. & MGNT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:19:03', '2016-08-06 16:19:03', 0, 0, '1bb0q9n6ym', NULL),
+(733, '', 'MIYA', 'ESPINOSA', 'GURU PROPERTY DEVT. & MGNT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:19:28', '2016-08-06 16:19:28', 0, 0, 'ea7m71hrw', NULL),
+(734, '', 'RICCI', 'MANGIO', 'GURU PROPERTY DEVT. & MGNT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:19:53', '2016-08-06 16:19:53', 0, 0, '3o1hvjra', NULL),
+(735, '', 'KAREN', 'MARTE', 'GURU PROPERTY DEVT. & MGNT CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:20:20', '2016-08-06 16:20:20', 0, 0, 'eb8mon9', NULL),
+(736, '', 'STEPHEN ', 'SARMIENTO', 'CREATIVE LIGHTING ASIA PHLIPPINES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:21:02', '2016-08-06 16:21:02', 0, 0, 'qspgj5sw', NULL),
+(737, '', 'DELLA ', 'SARMIENTO', 'CREATIVE LIGHTING ASIA PHLIPPINES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:21:28', '2016-08-06 16:21:28', 0, 0, '1jd7ca3qxh', NULL),
+(738, '', 'STEVE ROMAN', 'CABITAC', 'DOLE PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:22:18', '2016-08-06 16:22:18', 0, 0, 'knbpppde', NULL),
+(739, '', 'NILO ', 'CALATRAVA II', 'DOLE PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:22:58', '2016-08-06 16:22:58', 0, 0, '6p46nt4v', NULL),
+(740, '', 'GIOVANNI', 'MARCELO', 'DOLE PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:23:32', '2016-08-06 16:23:32', 0, 0, '1118dpam5', NULL),
+(741, '', 'EFIGENIO ', 'DE CASTRO', 'DOLE PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:23:56', '2016-08-06 16:23:56', 0, 0, '3hihlxm8', NULL),
+(742, '', 'JOSE ANGELO ', 'GAMBOA', 'DOLE PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:24:18', '2016-08-06 16:24:18', 0, 0, '2fztedrz', NULL),
+(743, '', 'DONALD ', 'MAGBAYAO', 'DAVIES PAINTS PHILIPPINES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:25:09', '2016-08-06 16:25:09', 0, 0, '8zezsmi', NULL),
+(744, '', 'CRISTINA ', 'RECLAMADO', 'EMPIRE LUXURY LIFESTYLECORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:26:06', '2016-08-06 16:26:06', 0, 0, '15hijqzwm', NULL),
+(745, '', 'REGINA', 'LACSON-MABULAY', 'ABS-CBN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:27:19', '2016-08-06 16:27:19', 0, 0, 'o5ux1bppv', NULL),
+(746, '', 'JAZMIN', 'COMIA', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'jazmin_comia@abs-cbn.com', '415-2272', '', NULL, 'Delegate', 'HEAD, MERCHANDISE', '', '', '2016-08-06 16:27:59', '2016-08-06 16:27:59', 0, 0, '194n19ff', NULL),
+(747, '', 'PIA', 'DE LEON', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'pia_deleon@abs-cbn.com', '415-2272', '', NULL, 'Delegate', 'MARKETING OFFICER', '', '', '2016-08-06 16:28:22', '2016-08-06 16:28:22', 0, 0, 'ay7uq3riy', NULL),
+(748, '', 'SERVILIANO', 'SAYAJON', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'sdsayajon@abs-cbn.com', '415-2272', '', NULL, 'Delegate', 'HEAD, PRODUCTS AND CREATIVES', '', '', '2016-08-06 16:28:41', '2016-08-06 16:28:41', 0, 0, 'mzcjnlie', NULL),
+(749, '', 'KHRISTINE', 'ASERON', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'ksaseron@abs-cbn.com', '415-2272', '', NULL, 'Delegate', 'PRODUCT DEVT. SPECIALIST', '', '', '2016-08-06 16:28:57', '2016-08-06 16:28:57', 0, 0, 'b0s6wc0ai', NULL),
+(750, '', 'MELVIN', 'CASAJE', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'melvin_casaje@abs-cbn.com', '415-2272', '0937-373-2076', NULL, 'Delegate', 'HEAD, TECHNICAL REQUIREMENTS', '', '', '2016-08-06 16:29:14', '2016-08-06 16:29:14', 0, 0, '7rxn9m4', NULL),
+(751, '', 'JOSELITO', 'LONTOKI', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'joselio_lontok@abs-cbn.com', '415-2272', '0937-379-0811', NULL, 'Delegate', 'HEAD, RETAIL LOGISTICS', '', '', '2016-08-06 16:29:30', '2016-08-06 16:29:30', 0, 0, '146ioz1ct', NULL),
+(752, '', 'ALVIN', '', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:29:49', '2016-08-06 16:29:49', 0, 0, '5irq62', NULL),
+(753, '', 'ALVIN', 'LUMACANG', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', 'alvin_lumacang@abs-cbn.com', '415-2272', '0937-373-1575', NULL, 'Delegate', 'HEAD, IMPORTATION & DISTRIBUTION', '', '', '2016-08-06 16:29:59', '2016-08-06 16:29:59', 0, 0, 'l62gxbg5', NULL),
+(754, '', 'CELINE', 'MARCELO', 'ABS-CBN CORPORATION', 'ABS-CBN Compound, Mo. Ignacia cor. Sgt. Esguerra St., Quezon City', '', '415-2272', '', NULL, 'Delegate', 'POS MANAGER', '', '', '2016-08-06 16:30:18', '2016-08-06 16:30:18', 0, 0, '2ef39dtf', NULL),
+(755, '', 'JOHNAS', ' MARVIDA', 'ABS-CBN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:31:56', '2016-08-06 16:31:56', 0, 0, '3mn1z9mb', NULL),
+(756, '', 'SONIA', 'ADRADA', 'AD-MAN RESOURCES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:32:39', '2016-08-06 16:32:39', 0, 0, 'ahmn35238', NULL),
+(757, '', 'MITZIE ', 'BUNAG', 'ARANETA CENTER, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:33:13', '2016-08-06 16:33:13', 0, 0, '37g4yeg9', NULL),
+(758, '', 'RUTH', '', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:33:31', '2016-08-06 16:33:31', 0, 0, '6jk7md3w3', NULL),
+(759, '', 'RUTH', 'MORALES', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'LEASING MANAGER', '', '', '2016-08-06 16:33:39', '2016-08-06 16:33:39', 0, 0, 'i9x9lm1o', NULL),
+(760, '', 'ELLEN', 'RAMAS', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'VGLA LEASING MANAGER', '', '', '2016-08-06 16:33:55', '2016-08-06 16:33:55', 0, 0, '2p3bx4ptr', NULL),
+(761, '', 'LALY', 'MORALES', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'LEASING MANAGER', '', '', '2016-08-06 16:34:09', '2016-08-06 16:34:09', 0, 0, '2thj1nyfu2', NULL),
+(762, '', 'MARJORIE', ' GO', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'MARKETING SERVICES MANAGER', '', '', '2016-08-06 16:34:25', '2016-08-06 16:34:25', 0, 0, '2lzdokm16q', NULL),
+(763, '', 'CHEZKA', 'GUEVARRA', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'MARKETING OFFICER', '', '', '2016-08-06 16:34:42', '2016-08-06 16:34:42', 0, 0, '24ierh2e8', NULL),
+(764, '', 'KATHY', ' DIONISIO', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'MARKETING OFFICER', '', '', '2016-08-06 16:34:56', '2016-08-06 16:34:56', 0, 0, 'asmmzpvac', NULL),
+(765, '', 'MADEL', 'PAROCHA', 'ARANETA CENTER, INC.', 'Aurora Tower, Araneta Center, Quezon City', '', '911-1577', '', NULL, 'Delegate', 'DIGITAL MAKETING OFFICER', '', '', '2016-08-06 16:35:05', '2016-08-06 16:35:05', 0, 0, 'g3ew5q80', NULL),
+(766, '', 'JULIENNE ', 'CHAI', 'AUDIOWAV MEDIA INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:35:55', '2016-08-06 16:35:55', 0, 0, 'w2mc67qd', NULL),
+(767, '', 'HARMONY ', 'ADIAO', 'AUDIOWAV MEDIA INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:36:35', '2016-08-06 16:36:35', 0, 0, 'p9k0lzya31', NULL),
+(768, '', 'BENNY', 'HINOLAN', 'AUDIOWAV MEDIA INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:36:59', '2016-08-06 16:36:59', 0, 0, '1ofixz8p', NULL),
+(769, '', 'JEFF', 'LOVERANES', 'AUDIOWAV MEDIA INC.', 'Unit 28 Admiin Building 1 Annex, North Main Ave., LTI Inc., Brgy. Binan, Laguna 4024', 'jeffrey.loveranes@wav.global', '', '0917-528-6522', NULL, 'Delegate', 'BUSINESS UNIT DIRECTOR', '', '', '2016-08-06 16:37:13', '2016-08-06 16:37:13', 0, 0, 'sj8aww7c', NULL),
+(770, '', 'JOHN', 'SANTOS', 'AUDIOWAV MEDIA INC.', 'Unit 28 Admiin Building 1 Annex, North Main Ave., LTI Inc., Brgy. Binan, Laguna 4024', 'john.santos@wav.global', '', '0917-843-3215', NULL, 'Delegate', 'BUSINESS UNIT DIRECTOR', '', '', '2016-08-06 16:37:29', '2016-08-06 16:37:29', 0, 0, 'zlbkdfeu', NULL),
+(771, '', 'JJ', 'SISON', 'AUDIOWAV MEDIA INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:37:57', '2016-08-06 16:37:57', 0, 0, '9p5ymcd3', NULL),
+(772, '', 'GAY', ' ABRASIA', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:38:19', '2016-08-06 16:38:19', 0, 0, 'fwns5rlu', NULL),
+(773, '', 'FRANCE', ' EUSEBIO', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:38:39', '2016-08-06 16:38:39', 0, 0, '11y4ig3qz', NULL),
+(774, '', 'CATH', 'DE LEON', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:39:04', '2016-08-06 16:39:04', 0, 0, '84nzxxre9', NULL),
+(775, '', 'MARIANA', 'ZOBEL DE AYALA', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:39:26', '2016-08-06 16:39:26', 0, 0, '15yowhm4', NULL),
+(776, '', 'PEACHY', 'ATENDIDO', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:39:50', '2016-08-06 16:39:50', 0, 0, 'tp9u7ma6', NULL),
+(777, '', 'DERICK ', 'MANUEL', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:40:09', '2016-08-06 16:40:09', 0, 0, '96ymzvmn6', NULL),
+(778, '', 'AILEEN', 'PESCADOR', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:40:27', '2016-08-06 16:40:27', 0, 0, 'wy6idvew', NULL),
+(779, '', 'JANICE ', 'PARENO', 'AYALA MALLS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:40:54', '2016-08-06 16:40:54', 0, 0, '1jldsg4mi', NULL),
+(780, '', 'SOCORRO', 'BAUTISTA', 'BLOOMING VENTURES, INC. BMI RESEARCH', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:41:15', '2016-08-06 16:41:15', 0, 0, '4kt8v1r', NULL),
+(781, '', 'MARY', ' SY', 'BRUSHSTROKES CREATIVE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:41:46', '2016-08-06 16:41:46', 0, 0, 'e8uw8z5', NULL),
+(782, '', 'MARY', ' SY', 'BRUSHSTROKES CREATIVE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:42:43', '2016-08-06 16:42:43', 0, 0, 'srmfrzal6', NULL),
+(783, '', 'MICHELLE', ' JULIANO', 'DELL PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:43:10', '2016-08-06 16:43:10', 0, 0, '3sv9em4m1', NULL),
+(784, '', 'CHAME', 'CRESPO', 'DELL PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:43:29', '2016-08-06 16:43:29', 0, 0, '1g4fvwwy4k', NULL),
+(785, '', 'LUISA', 'RECTO', 'DUTY FREE PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:43:53', '2016-08-06 16:43:53', 0, 0, 'jc9rgcoe3f', NULL),
+(786, '', 'MARIA LOURDES ', 'DELA CUADRA', 'DUTY FREE PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:44:35', '2016-08-06 16:44:35', 0, 0, '694fehh1x', NULL),
+(787, '', 'MARIA LOURDES', 'DELA CUADRA', 'DUTY FREE PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:45:04', '2016-08-06 16:45:04', 0, 0, 'o8ni548l', NULL),
+(788, '', 'CHRIS-JOSEF', 'C. BATENGA', 'FASCIN8', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:45:38', '2016-08-06 16:45:38', 0, 0, '1rvr9ipy', NULL),
+(789, '', 'YVETTE DRISTINE', 'EUSEBIO', 'FASCIN8', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:46:01', '2016-08-06 16:46:01', 0, 0, '3qzo6asx', NULL),
+(790, '', 'ANALYN', 'DE CASTRO', 'FASCIN8', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:46:26', '2016-08-06 16:46:26', 0, 0, 'bk4mr73l4', NULL),
+(791, '', 'JEANINE ALEXIS ', 'CABALQUINTO', 'FASCIN8', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:46:48', '2016-08-06 16:46:48', 0, 0, '3onqrg9tb', NULL),
+(792, '', 'LIN ', 'DERES', 'GOLDILOCKS BAKE SHOP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:47:14', '2016-08-06 16:47:14', 0, 0, 'b49lt50uo', NULL),
+(793, '', 'MICHELLE', ' DE GUZMAN', 'HBC, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:47:51', '2016-08-06 16:47:51', 0, 0, '42jrsfeq', NULL),
+(794, '', 'NICO', 'REVILLA', 'HBC, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:48:22', '2016-08-06 16:48:22', 0, 0, '6eseco5l3', NULL),
+(795, '', 'JULIAN', 'SEGOVIA', 'GNC PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:49:05', '2016-08-06 16:49:05', 0, 0, '4agb0c47p', NULL),
+(796, '', 'PATRICIA ANN ', 'TIMBOL', 'HBC, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:49:28', '2016-08-06 16:49:28', 0, 0, 'y8cw6u1s', NULL),
+(797, '', 'MARY', 'ANG', 'HERITAGE MULTI-PRODUCTS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:49:53', '2016-08-06 16:49:53', 0, 0, '11pt66r5m', NULL),
+(798, '', 'AZIZA', 'MONDENEDO', 'HP ENTERPRISE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:50:13', '2016-08-06 16:50:13', 0, 0, '2omwduzp', NULL),
+(799, '', 'NERRY ', 'BITANGCOL', 'HP ENTERPRISE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:50:30', '2016-08-06 16:50:30', 0, 0, '1l69qqx0', NULL),
+(800, '', 'ISABEL ', 'TOLENTINO', 'HP ENTERPRISE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:50:46', '2016-08-06 16:50:46', 0, 0, '2ay86ry7', NULL),
+(801, '', 'SWEET ', 'DELOS REYES', 'HP ENTERPRISE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:51:08', '2016-08-06 16:51:08', 0, 0, 'in77xpzc', NULL),
+(802, '', 'ROBERT', 'STOCKDILL', 'INSIDE RETAIL PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:51:46', '2016-08-06 16:51:46', 0, 0, 'd3ym5snn', NULL),
+(803, '', 'ALFREDO ', 'SCARANO', 'INSIDE RETAIL PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:52:05', '2016-08-06 16:52:05', 0, 0, 'ayx4bfitr', NULL),
+(804, '', 'NICOLE ', 'TORRES', 'INSIDE RETAIL PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:52:26', '2016-08-06 16:52:26', 0, 0, 'rj4eivfs', NULL),
+(805, '', 'AILEEN ', 'MACALINTAL', 'INSIDE RETAIL PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:52:45', '2016-08-06 16:52:45', 0, 0, 'r2oc4n99', NULL),
+(806, '', 'ROWEN ', 'UNTIVERO', 'MANSMITH AND FIELDERS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:53:03', '2016-08-06 16:53:03', 0, 0, 'xbx038ws', NULL),
+(807, '', 'ARLENE ', 'AMARANE', 'MICROSOFT PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:53:33', '2016-08-06 16:53:33', 0, 0, '5860uzhkv', NULL),
+(808, '', 'BETH', 'PANGAN', 'MICROSOFT PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:53:52', '2016-08-06 16:53:52', 0, 0, '271blm7c', NULL),
+(809, '', 'ABIGAIL ', 'JAO', 'MICROSOFT PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:54:09', '2016-08-06 16:54:09', 0, 0, '9x78fj1', NULL),
+(810, '', 'TANYA ', 'AGUILA-LOO', 'MICROSOFT PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:54:26', '2016-08-06 16:54:26', 0, 0, 'c7fpo3h2', NULL),
+(811, '', 'MEGAN ', 'DELIM', 'PHILIPPINE AIRLINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:54:52', '2016-08-06 16:54:52', 0, 0, 'r78v1z', NULL),
+(812, '', 'MA. CRITINA ', 'MAGLALANG', 'PHILIPPINE AIRLINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:55:11', '2016-08-06 16:55:11', 0, 0, '3mbz2xue', NULL),
+(813, '', 'JERRY', 'CALALUAN', 'PHILIPPINE AIRLINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:55:31', '2016-08-06 16:55:31', 0, 0, '5jfo2e9lp', NULL),
+(814, '', 'JASON', ' SIY', 'PHILIPPINE AIRLINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:55:50', '2016-08-06 16:55:50', 0, 0, '8bd6hm3qk', NULL),
+(815, '', 'KRISTINIE ', 'SAY UY', 'QCREATIVES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:56:19', '2016-08-06 16:56:19', 0, 0, '7u1bnhihy', NULL),
+(816, '', 'CAMILLE', 'CUA', 'QCREATIVES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:56:44', '2016-08-06 16:56:44', 0, 0, '2vzcf3gh', NULL),
+(817, '', 'CAMILLE ', 'TAN', 'QCREATIVES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:57:01', '2016-08-06 16:57:01', 0, 0, 'uwv0oskh', NULL),
+(818, '', 'ARLENE', 'MAGTIBAY', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:57:34', '2016-08-06 16:57:34', 0, 0, '138afflt', NULL),
+(819, '', 'DITAS ', 'TALEON', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:57:56', '2016-08-06 16:57:56', 0, 0, '5am86w3o3', NULL),
+(820, '', 'MARIGOLD ', 'GARCIA', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:58:17', '2016-08-06 16:58:17', 0, 0, '9sh1chn9', NULL),
+(821, '', 'MA. MICHAELA', 'DE SAGUN', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:58:39', '2016-08-06 16:58:39', 0, 0, '3bc2pdr', NULL),
+(822, '', 'MA. KRITINA ', 'REAL', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:59:00', '2016-08-06 16:59:00', 0, 0, '4he055r', NULL),
+(823, '', 'FLORAMIE ', 'VEGA', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:59:19', '2016-08-06 16:59:19', 0, 0, '1k8cpdt7n', NULL),
+(824, '', 'CARLA ', 'TOLENTINO', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 16:59:36', '2016-08-06 16:59:36', 0, 0, '4wdyf7k0', NULL),
+(825, '', 'DEAN', 'DAYAO', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:00:03', '2016-08-06 17:00:03', 0, 0, 'awq3r6edz', NULL),
+(826, '', 'AURORA', 'ABIVA', 'SHANGRI-LA PLAZA CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:00:32', '2016-08-06 17:00:32', 0, 0, 'mh3za8xv', NULL),
+(827, '', 'MICHELLE', 'RIVERA', 'SHANGRI-LA PLAZA CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:00:54', '2016-08-06 17:00:54', 0, 0, '8hag9mx4qs', NULL),
+(828, '', 'ROLLY', ' PAGASPAS', 'SHOP TALK ASIA', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:01:12', '2016-08-06 17:01:12', 0, 0, '1475uhhw7', NULL),
+(829, '', 'ADRIAN ', 'TEO', 'SPROOKI PTE LTD', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:01:44', '2016-08-06 17:01:44', 0, 0, '9ricgyzr1', NULL),
+(830, '', 'KRISTINE', 'LIM', 'SUYEN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:02:16', '2016-08-06 17:02:16', 0, 0, '8udbw9bjn5', NULL),
+(831, '', 'SUYEN ', 'LIM', 'SUYEN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:02:36', '2016-08-06 17:02:36', 0, 0, '35vetqd0', NULL),
+(832, '', 'DANNIEBELLE', 'MENDOZA', 'SUYEN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:02:58', '2016-08-06 17:02:58', 0, 0, '5lfvk9st7', NULL),
+(833, '', 'CRISTINA ', 'MONTINOLA', 'SUYEN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:03:21', '2016-08-06 17:03:21', 0, 0, '1p8awd18', NULL),
+(834, '', 'JASON MATTHEW ', 'LIM', 'THE EXPRESSIONS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:03:41', '2016-08-06 17:03:41', 0, 0, 'x20llsk', NULL),
+(835, '', 'RAYMOND ', 'NIETO', 'THE EXPRESSIONS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:04:00', '2016-08-06 17:04:00', 0, 0, '1hkmt43ros', NULL),
+(836, '', 'ELIZ ', 'LIM', 'THE PHILIPPINE STAR', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:04:30', '2016-08-06 17:04:30', 0, 0, '8v8gfbzty', NULL),
+(837, '', 'GRACE ', 'LAUREL', 'THE PHILIPPINE STAR', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:04:46', '2016-08-06 17:04:46', 0, 0, '1jpz6i44y', NULL),
+(838, '', 'EDEN ', 'GODINO', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:05:22', '2016-08-06 17:05:22', 0, 0, '8b4wt0ows', NULL),
+(839, '', 'GINA ', 'MORENO', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:05:49', '2016-08-06 17:05:49', 0, 0, '50a49wkg0', NULL),
+(840, '', 'DESIREE ', 'CUERDO', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:06:07', '2016-08-06 17:06:07', 0, 0, '895pe17rt', NULL),
+(841, '', 'FRANCIS ', 'LAZARO', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:06:24', '2016-08-06 17:06:24', 0, 0, '14ebv45ho', NULL),
+(842, '', 'DHEZA ', 'RAMOS', 'WILCON DEPOT INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:06:43', '2016-08-06 17:06:43', 0, 0, '2e6du5g29m', NULL),
+(843, '', 'LORNA ', 'FABIAN', 'ARANETE CENTER, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:07:18', '2016-08-06 17:07:18', 0, 0, 'bi4yt578k', NULL),
+(844, '', 'AMY ', 'ZOLETA', 'ARGO INT&#39;L. FORWARDERS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:07:36', '2016-08-06 17:07:36', 0, 0, 'bgc7mod', NULL),
+(845, '', 'FERDINAND', 'NEGRE', 'BENGZON NEGRE UNTALAN INTELLECTUAL PROPERTY ATTORNEYS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:09:03', '2016-08-06 17:09:03', 0, 0, 'fpq21zru', NULL),
+(846, '', 'SAMIE', 'LIM', 'BLIMS LIFESTYLE GROUP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:09:30', '2016-08-06 17:09:30', 0, 0, '243mn57ng', NULL),
+(847, '', 'SAM FREDERICK ', 'LIM', 'BLIMS LIFESTYLE GROUP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:09:54', '2016-08-06 17:09:54', 0, 0, 'suxvt6unh', NULL),
+(848, '', 'MA. ALEGRIA', 'LIMJOCO', 'CENTRAL BOOKS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:10:26', '2016-08-06 17:10:26', 0, 0, '3ts81xe4', NULL),
+(849, '', 'RICHARD ', 'SANTOS', 'CINDERELLA MARKETING CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:10:49', '2016-08-06 17:10:49', 0, 0, '180q5f47c3', NULL),
+(850, '', 'CHAN ', 'KOK BIN', 'CMG RETAIL INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:11:11', '2016-08-06 17:11:11', 0, 0, 'dlbofpj', NULL),
+(851, '', 'KENNETH ', 'TUNG', 'CW HOME DEPOT', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:11:32', '2016-08-06 17:11:32', 0, 0, '25x4udlt', NULL),
+(852, '', 'LORENZO', 'FORMOSO', 'DUTY FREE PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:12:05', '2016-08-06 17:12:05', 0, 0, '1k8d88ii', NULL),
+(853, '', 'CHRIS-JOSEF', 'BATENGA', 'FASCIN8', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:12:39', '2016-08-06 17:12:39', 0, 0, '63qhexv', NULL),
+(854, '', 'TONETTE ', 'LEE', 'GFK PHILIPPINES CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:12:56', '2016-08-06 17:12:56', 0, 0, '3irh0st6', NULL),
+(855, '', 'BERNIE ', 'LIU', 'GOLDEN ABC, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:13:15', '2016-08-06 17:13:15', 0, 0, '31jyb0h5', NULL),
+(856, '', 'FREDDIE ', 'GO', 'GOLDILOCKS BAKE SHOP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:13:31', '2016-08-06 17:13:31', 0, 0, 'r1ukg19a', NULL),
+(857, '', 'FRANKLIN ', 'GO', 'GOLDILOCKS BAKE SHOP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:13:48', '2016-08-06 17:13:48', 0, 0, 'jjmtcroy', NULL),
+(858, '', 'JAY ', 'ALDEGUER', 'ISLANDS SOUVENIRS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:14:10', '2016-08-06 17:14:10', 0, 0, '1cxz4k9ucu', NULL),
+(859, '', 'ROMEO ', 'TAN', 'LC C MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:14:32', '2016-08-06 17:14:32', 0, 0, '5xxzyy2t3', NULL),
+(860, '', 'LEONITO', 'LOPUE', 'LOPUE&#39;S DEPT. STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:14:54', '2016-08-06 17:14:54', 0, 0, 'az8lryy5f', NULL),
+(861, '', 'MINDA ', 'CARPIO', 'LVC ASIA INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:15:10', '2016-08-06 17:15:10', 0, 0, '1bkggzpk', NULL),
+(862, '', 'MARC BRIAN ', 'LIM', 'MAGIC GROUP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:15:28', '2016-08-06 17:15:28', 0, 0, '14coaxoom', NULL),
+(863, '', 'MARLON ', 'OCAMPO', 'MERCER PHILIPPINES INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:16:01', '2016-08-06 17:16:01', 0, 0, '178i36wo', NULL),
+(864, '', 'VIVIAN QUE ', 'AZCONA', 'MERCURY DRUG CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:16:28', '2016-08-06 17:16:28', 0, 0, '95m5ef8', NULL),
+(865, '', 'STEVEN ', 'CUA', 'PAGASA', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:16:51', '2016-08-06 17:16:51', 0, 0, '1n7nrarnku', NULL),
+(866, '', 'LORELIE ', 'EDLES', 'PHILIPPINE RETAILERS ASSOCIATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:17:07', '2016-08-06 17:17:07', 0, 0, '25o7c4n8', NULL),
+(867, '', 'PAUL ', 'SANTOS', 'PICTURE CITY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:17:40', '2016-08-06 17:17:40', 0, 0, '13cubrjsw', NULL),
+(868, '', 'MARISOL ', 'MARCELO', 'PRIMER GROUP OF COMPANIES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:17:56', '2016-08-06 17:17:56', 0, 0, '3pn190u7q', NULL),
+(869, '', 'MELIZA ', 'RODRIGUEZ', 'QUANTIUM SOLUTIONS PHILIPPINES, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:18:10', '2016-08-06 17:18:10', 0, 0, 'ajygvxi', NULL),
+(870, '', 'EUNICE ', 'GONZALES', 'ROBINSONS LAND CORP.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:18:33', '2016-08-06 17:18:33', 0, 0, '2g7l829g', NULL),
+(871, '', 'FREDERICK ', 'GO', 'ROBINSONS MALL', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:18:57', '2016-08-06 17:18:57', 0, 0, '6q59bwn0r', NULL),
+(872, '', 'BIENVENIDO', 'TANTOCO III', 'RUSTAN SUPERCENTERS INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:19:20', '2016-08-06 17:19:20', 0, 0, 'ztjlm99w', NULL),
+(873, '', 'JORGE ', 'MENDIOLA', 'SM RETAIL INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:19:44', '2016-08-06 17:19:44', 0, 0, '4hgigi5ma', NULL),
+(874, '', 'MARS ', 'CHUA', 'SPORTSHOUSE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:20:03', '2016-08-06 17:20:03', 0, 0, '3sb4wco8', NULL),
+(875, '', 'BELINDA ', 'BENG HUI', 'SYCIP GORRES VELAYO & COMPANY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:20:27', '2016-08-06 17:20:27', 0, 0, '452g75s', NULL),
+(876, '', 'VICENTE', 'MUNOZ, SR.', 'THE BODY SHOP', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:20:47', '2016-08-06 17:20:47', 0, 0, '3iiph6pq', NULL),
+(877, '', 'ROBERTO', 'CLAUDIO', 'TOBY&#39;S SPORTS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:21:06', '2016-08-06 17:21:06', 0, 0, '2qjj6o72', NULL),
+(878, '', 'JULIAN', 'SEGOVIA', 'TOTAL NUTRITION CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:21:27', '2016-08-06 17:21:27', 0, 0, '20nlbnkhz', NULL);
+INSERT INTO `tbl_persons` (`ID`, `Salutation`, `FirstName`, `LastName`, `CompanyName`, `Address`, `Email`, `Telephonefax`, `Mobile`, `MobileNo`, `BusinessPhone`, `Designation`, `Province`, `CityMunicipality`, `DateRegistered`, `DateAttended`, `isPicked`, `isAllowed`, `BarcodeID`, `Remarks`) VALUES
+(879, '', 'ROSEMARIE ', 'ONG', 'WILCON DEPOT, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:21:47', '2016-08-06 17:21:47', 0, 0, 'cdj4l9x', NULL),
+(880, '', 'AMOS TIMOTHY ', 'ONG', 'WILCON DEPOT, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:22:04', '2016-08-06 17:22:04', 0, 0, '215awhzm', NULL),
+(881, '', 'ROCKY', 'SANTIAGO', 'XFACTOR PRODUCTIONS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:22:28', '2016-08-06 17:22:28', 0, 0, 'c695vct', NULL),
+(882, '', 'ANDREW ', 'YEO', 'RETAIL ASIA', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:22:44', '2016-08-06 17:22:44', 0, 0, '13bbr1qrc', NULL),
+(883, '', 'MILLETT ', 'BURGOS', 'RETAIL ASIA', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:23:08', '2016-08-06 17:23:08', 0, 0, '430h9d4bv', NULL),
+(884, '', 'FRANCISCO', 'DELA CRUZ', '', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:23:24', '2016-08-06 17:23:24', 0, 0, 'k5joq7qj', NULL),
+(885, '', 'MICHELLE IRISH', 'SAMSON', 'ARIVA ACADEMY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:23:45', '2016-08-06 17:23:45', 0, 0, '2wxku9tx', NULL),
+(886, '', 'CARLO LOPEZ ', 'KATIGBAK', 'ABS-CBN CORPORATION', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:24:06', '2016-08-06 17:24:06', 0, 0, 'w7fzmprm', NULL),
+(887, '', 'JUAN VICTOR ', 'HERNANDEZ', 'PLDT ALPHA ENTERPRISE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:24:21', '2016-08-06 17:24:21', 0, 0, '4v6yl1', NULL),
+(888, '', 'INANC ', 'BALCI', 'LAZADA PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:24:39', '2016-08-06 17:24:39', 0, 0, '32nn7fvd', NULL),
+(889, '', 'TONY ', 'HERTZ', 'TONY HERTZ', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:24:57', '2016-08-06 17:24:57', 0, 0, '3y5i28hj', NULL),
+(890, '', 'SEC. RAMON ', 'LOPEZ', 'DEPARTMENT OF TRADE & INDUSTRY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:25:24', '2016-08-06 17:25:24', 0, 0, 'lkeglosk', NULL),
+(891, '', 'SHASHI ', 'TIRPATHI', 'GOOGLE PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:25:41', '2016-08-06 17:25:41', 0, 0, '2a8lhnluz', NULL),
+(892, '', 'RUBEE ', 'LEE', 'TWITTER (Singapore)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:25:56', '2016-08-06 17:25:56', 0, 0, 'ctydjae3', NULL),
+(893, '', 'DALE ', 'ROBERTS', 'JAG JEANS (Fil-Pacific Apparel Corp)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:26:09', '2016-08-06 17:26:09', 0, 0, '9ej21ef', NULL),
+(894, '', 'JOE ', 'CALIRO', 'GLOBE TELECOM INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:26:25', '2016-08-06 17:26:25', 0, 0, '1n8rpjb5z', NULL),
+(895, '', 'EUGENE ', 'SAW', 'SHOEMART INC. - PARISIAN', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:26:42', '2016-08-06 17:26:42', 0, 0, 'vv4rlel0', NULL),
+(896, '', 'STEPHEN ', 'CHOW', 'BENOY LIMITED (Singapore)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:27:01', '2016-08-06 17:27:01', 0, 0, 'mfymuelr', NULL),
+(897, '', 'ACACIA ', 'LEROY', 'TRENDWATCHING (Singapore)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:27:24', '2016-08-06 17:27:24', 0, 0, '27y8ea2d', NULL),
+(898, '', 'CLAIRE ', 'MULA', 'SPROOKI PTE LTD (singapore)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:27:40', '2016-08-06 17:27:40', 0, 0, '3zztif1i', NULL),
+(899, '', 'GELLI ', 'VICTOR', 'MODERATOR', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:27:53', '2016-08-06 17:27:53', 0, 0, '96f7ejji', NULL),
+(900, '', 'MARK ', 'SABLAN', 'AYALA LAND, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:28:07', '2016-08-06 17:28:07', 0, 0, 'dea1rv9', NULL),
+(901, '', 'JULIUS ', 'PARAS', 'KALIBRR', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:28:32', '2016-08-06 17:28:32', 0, 0, 'dxgol0t', NULL),
+(902, '', 'STUART', 'JAMIESON', 'NIELSEN PHILIPPINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:28:53', '2016-08-06 17:28:53', 0, 0, 'eidcd8c', NULL),
+(903, '', 'ROWENA ', 'TOMELDAN', 'AYALA LAND INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:29:28', '2016-08-06 17:29:28', 0, 0, '1iltlq7t', NULL),
+(904, '', 'MARICRIS ', 'BERNARDINO', 'AYALA LAND INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:30:01', '2016-08-06 17:30:01', 0, 0, 'azhbzp0g5', NULL),
+(905, '', 'ROSVI', 'GAETOS', 'CITEM', '', '', '', '', NULL, 'Delegate', 'DIRECTOR', '', '', '2016-08-06 17:30:29', '2016-08-06 17:30:29', 0, 0, 'c1a3n85c', NULL),
+(906, '', 'ZENAIDA', 'MAGLAYA', 'DEPT. OF TRADE & INDUSTRY', '6th Floor, Tradean Industry Building, 361 Sen. Gil Puyat Avenue, Makati City', 'rog@dti.gov.ph', '751-0384', '', NULL, 'Delegate', 'UNDERSECRETARY', '', '', '2016-08-06 17:30:46', '2016-08-06 17:30:46', 0, 0, '71jhwu61j', NULL),
+(907, '', 'ARIZ ', 'DIMALANTA', 'GOLDEN ARCHES DEVT. CORP. (McDONALD&#39;S PHILS.)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:31:36', '2016-08-06 17:31:36', 0, 0, '64zl1huxe', NULL),
+(908, '', 'KYLIE ', 'REMIGIO', 'GOLDEN ARCHES DEVT. CORP. (McDONALD&#39;S PHILS.)', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:31:55', '2016-08-06 17:31:55', 0, 0, 'bhxd8qf', NULL),
+(909, '', 'DAVE ', 'BUENVIAJE', 'PHILIPPINE DAILY INQUIRER', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:32:18', '2016-08-06 17:32:18', 0, 0, '27cwczb7', NULL),
+(910, '', 'ESTELA', 'DE GUZMAN', 'PHILIPPINE STATISTICS AUTHORITY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:32:44', '2016-08-06 17:32:44', 0, 0, 'd85s7', NULL),
+(911, '', 'JAY ANTHONY', 'AGOSTO', 'XFACTOR PRODUCTIONS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:33:08', '2016-08-06 17:33:08', 0, 0, '7khqonxd', NULL),
+(912, '', 'ROCKY', 'SANTIAGO', 'XFACTOR PRODUCTIONS, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:33:41', '2016-08-06 17:33:41', 0, 0, 'cwxkxtk1', NULL),
+(913, '', 'FE  ', 'DE LA CRUZ', 'BANGKO SENTRAL NG PILIPINAS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:34:04', '2016-08-06 17:34:04', 0, 0, 's38ln2j', NULL),
+(914, '', 'ROGELIO ', 'GARCIA', 'BANGKO SENTRAL NG PILIPINAS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:34:30', '2016-08-06 17:34:30', 0, 0, '3tr2dfju', NULL),
+(915, '', 'JAY EDWARD ', 'AMATONG', 'BANGKO SENTRAL NG PILIPINAS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:34:51', '2016-08-06 17:34:51', 0, 0, 'yfgrlp4', NULL),
+(916, '', 'JETZER ', 'TAN', 'BANGKO SENTRAL NG PILIPINAS', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:35:12', '2016-08-06 17:35:12', 0, 0, 'i44vwwds', NULL),
+(917, '', 'KOOKAI ', 'SILVERIO', 'PHILIPPINE AIRLINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:35:34', '2016-08-06 17:35:34', 0, 0, '40osix6a', NULL),
+(918, '', 'PINKY', 'CUSTODIO', 'PHILIPPINE AIRLINES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:35:59', '2016-08-06 17:35:59', 0, 0, '2td2sc9r', NULL),
+(919, '', 'SHERWIN ', 'YASON', 'SYCIP GORRES VELAYO & COMPANY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:36:22', '2016-08-06 17:36:22', 0, 0, 'h1ykch48', NULL),
+(920, '', 'RAMON ', 'DIZON', 'SYCIP GORRES VELAYO & COMPANY', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:36:48', '2016-08-06 17:36:48', 0, 0, 'b9siob', NULL),
+(921, '', 'LYNCH', 'IMBAT', 'STAR CRUISES', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:37:35', '2016-08-06 17:37:35', 0, 0, '7sz5kcw', NULL),
+(922, '', 'OLIVE', 'VICTORINO', 'ROBINSONS DEPT. STORE', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:37:55', '2016-08-06 17:37:55', 0, 0, 'q6z7apv1', NULL),
+(923, '', 'DEBBIE', 'MAGBANUA', 'ISLAND EXHIIT & EVENT MGNT LINK, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:38:13', '2016-08-06 17:38:13', 0, 0, 'ngo17b7l', NULL),
+(924, '', 'PIVI ', 'DIAZ', 'AYALA LAND INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:38:32', '2016-08-06 17:38:32', 0, 0, '7yuz2k6go', NULL),
+(925, '', 'KRIS ', 'SEVILLE', 'HP INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:38:51', '2016-08-06 17:38:51', 0, 0, '240nzm1o', NULL),
+(926, '', 'ALICE ', 'LIU', 'GOLDEN ABC, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:39:14', '2016-08-06 17:39:14', 0, 0, 'xwj1uawl0', NULL),
+(927, '', 'PATRICIA ', 'MAGBANUA', 'GOLDEN ABC, INC.', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:39:37', '2016-08-06 17:39:37', 0, 0, '34gn0u2m', NULL),
+(928, '', 'Charito ', 'Estrada', 'Philippine Franchise Association', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:44:32', '2016-08-06 17:44:32', 0, 0, 'zphd5p9in', NULL),
+(929, '', 'Lhot', 'San Diego', 'Philippine Franchise Association', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:44:56', '2016-08-06 17:44:56', 0, 0, '2xu0kjerq', NULL),
+(930, '', 'Joanne ', 'Tumagan', 'Philippine Franchise Association', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:45:25', '2016-08-06 17:45:25', 0, 0, 'agkf0mt', NULL),
+(931, '', 'Walid', 'Wafik', 'SMX Convention Center', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:46:06', '2016-08-06 17:46:06', 0, 0, '42td3sf4', NULL),
+(932, '', 'Agnes', 'Pacis', 'SMX Convention Center', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-06 17:46:31', '2016-08-06 17:46:31', 0, 0, '14bkm1jxw', NULL),
+(933, '', 'sdfsdf', 'dfsdfsd', 'sdfsdfsdf', '', '', '', '', NULL, 'Delegate', '', '', '', '2016-08-07 18:48:49', '2016-08-07 18:48:49', 0, 0, '8siz3yb47n', NULL),
+(934, '', 'jaymar 2 2', 'jaymar 2 2', 'jaymar co. 2 2 ', 'asdasd', 'asdasd', 'asdasd', 'adads', NULL, 'Delegate', 'asdasd', '', '', '2016-08-07 20:48:13', '2016-08-07 20:48:13', 0, 0, 'lsvd14nif', 'Pre-Paid'),
+(935, '', 'poopoo', 'poopoo', 'poopoo icc', 'asd', 'asd', 'asd', 'asd', NULL, 'Delegate', 'asd', '', '', '2016-08-07 20:41:56', '2016-08-07 20:41:56', 0, 0, '2cqyhjxxu8', 'One day'),
+(936, '', 'poo poo 3', 'poo poo 3', 'poo poo 2', 'poo poo 2', 'poo poo 2q weqwe q', 'poo poo 2', 'poo poo 2', NULL, 'Delegate', 'poo poo 2', '', '', '2016-08-08 15:18:55', '2016-08-08 15:18:55', 0, 0, '7dslods', 'Pre-Registered');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_raffleentries`
+--
+
+DROP TABLE IF EXISTS `tbl_raffleentries`;
+CREATE TABLE IF NOT EXISTS `tbl_raffleentries` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `FirstName` varchar(255) DEFAULT NULL,
+  `LastName` varchar(255) DEFAULT NULL,
+  `CompanyName` varchar(255) DEFAULT NULL,
+  `BarcodeID` varchar(255) DEFAULT NULL,
+  `isPicked` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_raffleentries`
+--
+
+INSERT INTO `tbl_raffleentries` (`ID`, `FirstName`, `LastName`, `CompanyName`, `BarcodeID`, `isPicked`) VALUES
+(2, 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '6lt3y7o4', -1),
+(3, 'ELIZ ', 'LIM', 'THE PHILIPPINE STAR', '8v8gfbzty', 0),
+(4, 'poo poo 3', 'poo poo 3', 'poo poo 2', '7dslods', 0),
+(5, 'JENSEN MADERA ', 'CU', '2358 EXQUISITE ENTERPRISES INC.', '6lt3y7o4', -1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_session_data`
+--
+
+DROP TABLE IF EXISTS `tbl_session_data`;
+CREATE TABLE IF NOT EXISTS `tbl_session_data` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BarcodeID` varchar(100) DEFAULT NULL,
+  `FirstName` varchar(255) DEFAULT NULL,
+  `LastName` varchar(255) DEFAULT NULL,
+  `CompanyName` varchar(255) DEFAULT NULL,
+  `RoomName` varchar(100) DEFAULT NULL,
+  `DateRecorded` datetime DEFAULT NULL,
+  `DateSignout` datetime DEFAULT NULL,
+  `Status` varchar(20) DEFAULT NULL,
+  `TS` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_session_rooms`
+--
+
+DROP TABLE IF EXISTS `tbl_session_rooms`;
+CREATE TABLE IF NOT EXISTS `tbl_session_rooms` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `RoomCode` int(11) DEFAULT NULL,
+  `RoomName` varchar(100) DEFAULT NULL,
+  `StartTime` timestamp NULL DEFAULT NULL,
+  `EndTime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

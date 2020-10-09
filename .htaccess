@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+	DirectoryIndex index.php
+	RewriteEngine On
+	RewriteBase /pra/
+	RewriteCond $1 !^(index\.php|images|css|js|robots\.txt|favicon\.ico)
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ ./index.php?/$1 [L,QSA] 
+</IfModule> 
+
+#<IfModule mod_rewrite.c>
+
+#RewriteEngine On
+
+# Set the rewritebase to your CI installation folder
+#RewriteBase /isds/
+
+
+# Send everything to index.php
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php/$1 [L]
+#http://stackoverflow.com/questions/14068852/codeigniter-can-only-access-default-route-controller
+#</IfModule> 

@@ -1,0 +1,9 @@
+Create table if not exists tbl_raffleentries(
+    ID INT AUTO_INCREMENT,
+    FirstName Varchar(255),
+    LastName Varchar(255),
+    CompanyName Varchar(255),
+    BarcodeID Varchar(255),
+	isPicked INT,
+    PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT CHARSET=UTF8;

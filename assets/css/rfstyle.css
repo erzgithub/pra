@@ -1,0 +1,126 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic);
+
+ 
+.cd{
+	position: relative;
+	width: 100px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+ 
+#countdown {
+	font-family: 'Roboto Condensed', sans-serif;
+ 
+	width: 200px;
+	height: 80px;
+/**/	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -100px;
+	margin-top: -50px; 
+	color: red;
+	font-size: 3em;
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.n-container{
+	margin-top: 20px;
+	min-height: 200px;
+	position: relative;
+	border: 1px solid #000;
+	
+	overflow: hidden;
+	
+}
+
+.addconfetti {
+	background: url(../images/confetti.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+.control {
+	width: 350px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	float: none;
+ 
+}
+ 
+.control ul {
+	list-style: none;
+}
+
+.control ul li {
+	display: inline;
+}
+
+#cmbSec {
+	width: 100px;
+}
+
+.title {
+	color: orange;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.logo {
+	width: 200px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.rn-names h1{
+	font-size: 60px;
+	
+}
+
+.rn-names h4 {
+	font-size: 30px;
+	
+}
+
+ 
+
+.white {
+	background:white;
+}
+
+.t-container {
+	 
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 100;
+}
+
+.mcon {
+ 
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.lc, .rc {
+	width: 120px;
+	float: left;
+}
+
+.mt {
+	width: auto;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+}

@@ -1,0 +1,22 @@
+.logo{
+	width: 500px;
+	height: 260px;
+	position: relative;
+}
+
+.logo img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.blue{ 
+	color: blue;
+}
+
+.bg{
+    background: url("../images/NRCE.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    content: ".";
+    min-height: 600px;
+}

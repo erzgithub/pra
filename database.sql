@@ -1,0 +1,77 @@
+CREATE DATABASE dsds;
+use dsds;
+ 
+CREATE TABLE IF NOT EXISTS tbl_persons(
+	ID INT AUTO_INCREMENT,
+	Salutation VARCHAR(10),
+	FirstName VARCHAR(255),
+	LastName VARCHAR(255),
+	CompanyName VARCHAR(255),
+	Email VARCHAR(255),
+	MobileNo VARCHAR(255),
+	BusinessPhone VARCHAR(255),
+	Designation VARCHAR(255),
+	Province VARCHAR(255),
+	CityMunicipality VARCHAR(255),
+	DateRegistered DATETIME,
+	DateAttended DATETIME,
+	isPicked INT,
+	isAllowed INT,
+	BarcodeID VARCHAR(255),
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;
+
+CREATE TABLE IF NOT EXISTS tbl_kits(
+	ID INT AUTO_INCREMENT,
+	BarcodeID VARCHAR(255),
+	DateRecorded DATETIME,
+	Remarks TEXT,
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;
+
+CREATE TABLE IF NOT EXISTS tbl_foodstabs(
+	ID INT AUTO_INCREMENT,
+	BarcodeID VARCHAR(255),
+	MealType VARCHAR(50),
+	DateRecorded DATETIME,
+	Remarks TEXT,
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;
+
+CREATE TABLE IF NOT EXISTS tbl_foods(
+	ID INT AUTO_INCREMENT,
+	BarcodeID VARCHAR(255),
+	MealType VARCHAR(50),
+	DateRecorded DATETIME,
+	Remarks TEXT,
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;
+
+CREATE TABLE IF NOT EXISTS tbl_mealtypes(
+	ID INT AUTO_INCREMENT,
+	MealType VARCHAR(50),
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;
+
+CREATE TABLE IF NOT EXISTS tbl_session_rooms (
+	ID INT AUTO_INCREMENT,
+	RoomCode INT,
+	RoomName VARCHAR(100),
+	StartTime TIMESTAMP,
+	EndTime TIMESTAMP,
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;
+
+CREATE TABLE IF NOT EXISTS tbl_session_data (
+	ID INT AUTO_INCREMENT,
+	BarcodeID VARCHAR(100),
+	FirstName VARCHAR(255),
+	LastName VARCHAR(255),
+	CompanyName VARCHAR(255),
+	RoomName VARCHAR(100),
+	DateRecorded DATETIME,
+	DateSignout DATETIME,
+	Status VARCHAR(20),
+	TS TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY(ID)
+)Engine=InnoDb DEFAULT Charset=UTF8;

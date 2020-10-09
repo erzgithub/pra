@@ -1,0 +1,14 @@
+.k-container{
+	min-height: 100px;
+	margin-top: 100px;
+}
+
+.info {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.s {
+	font-size: 50px;
+	font-weight: bold;
+}
